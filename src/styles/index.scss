@@ -188,4 +188,20 @@ img{
     .container{
         padding-inline: 3vw;
     }
+    .footer{
+        p{
+            font-size: .85em;
+        }
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2em;
+        .footer-section:nth-child(1){
+                    grid-column:  span 4;
+        }
+        .footer-section:nth-child(2){
+            grid-column:  span 2;
+        }
+        .footer-section:nth-child(3){
+            grid-column:  span 2;
+        }
+    }
 }
