@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 // import "../styles/loginpage.css"
 import { Link } from 'react-router-dom'
-// import login from "../images/login1.jpg"
+import login from "../../public/images/recepies/image_11.jpg"
 import toast from 'react-hot-toast'
 import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from '../utils/ApiRoutes.jsx'

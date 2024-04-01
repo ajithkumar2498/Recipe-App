@@ -1,11 +1,12 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
-import { faRightToBracket, faFloppyDisk, faGear, faPlus, faCog, faBowlFood} from "@fortawesome/free-solid-svg-icons"
-import { Link } from 'react-router-dom'
+import { faRightToBracket, faPlus, faCog, faBowlFood, faGear} from "@fortawesome/free-solid-svg-icons"
+import AppRoutes from '../utils/AppRoutes'
 
 function Navbar() {
     const [showSideBar, setShowSideBar]=useState(false)
+    const AppLinks = AppRoutes
     const Links = [
       {
         name:"ADD RECIPE",
@@ -14,7 +15,7 @@ function Navbar() {
       },
       {
         name:"RECEPIES",
-        path:"/saved",
+        path:"/recepies",
         icon:faBowlFood
       },
       {
@@ -25,7 +26,7 @@ function Navbar() {
       {
         name:"SETTINGS",
         path:"/settings",
-        icon:faCog
+        icon:faGear
       }
     ]
     function closeSideBar(){
@@ -36,13 +37,10 @@ function Navbar() {
      <a href="#!" className='logo'>F<span>oo</span>diesZone</a>
      <div className="nav-links">
       {
-        Links.map(link =>(
-          <a href="#!" key={link.name}>{link.name}</a>
+        Links.map((link) =>(
+          <a to={link.path} key={link.name}>{link.name}</a>
         ))
       }
-        {/* <a href="#!" >home</a>
-        <a href="#!">recipies</a>
-        <a href="#!">settings</a> */}
      </div>
     <div onClick={()=> setShowSideBar(true)} className={showSideBar ? "sidebar-Icon active" : "sidebar-Icon"}>
        

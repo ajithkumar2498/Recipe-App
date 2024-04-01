@@ -109,7 +109,7 @@ img{
 
 
 .custom-images{
-    background-color: red;
+    // background-color: red;
     height:0;
     width:100%;
     position: relative;
@@ -171,6 +171,7 @@ img{
     }
     .footer{
         grid-template-columns: repeat(4, 1fr);
+        gap: 2em;
         .footer-section:nth-child(1){
                     grid-column:  span 4;
         }
