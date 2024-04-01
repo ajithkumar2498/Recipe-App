@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
 import { faRightToBracket, faPlus, faCog, faBowlFood, faGear} from "@fortawesome/free-solid-svg-icons"
-import AppRoutes from '../utils/AppRoutes'
+
 
 function Navbar() {
     const [showSideBar, setShowSideBar]=useState(false)
-    const AppLinks = AppRoutes
     const Links = [
       {
         name:"ADD RECIPE",
