@@ -1,16 +1,17 @@
-import { Link } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
-import { faRightToBracket, faPlus, faCog, faBowlFood, faGear} from "@fortawesome/free-solid-svg-icons"
+import { faRightToBracket, faBowlFood, faGear, faHome} from "@fortawesome/free-solid-svg-icons"
 
 
 function Navbar() {
+    const location = useLocation()
     const [showSideBar, setShowSideBar]=useState(false)
     const Links = [
       {
-        name:"ADD RECIPE",
-        path:"/login",
-        icon:faPlus
+        name:"HOME",
+        path:"/home",
+        icon:faHome
       },
       {
         name:"RECEPIES",
@@ -33,11 +34,11 @@ function Navbar() {
     }
   return <>
    <div className="nav-bar container">
-     <a href="#!" className='logo'>F<span>oo</span>diesZone</a>
+     <Link href="#!" className='logo'>F<span>oo</span>diesZone</Link>
      <div className="nav-links">
       {
         Links.map((link) =>(
-          <a to={link.path} key={link.name}>{link.name}</a>
+          <Link className={location.pathname === link.path ? "active " : " "} to={link.path} key={link.name}>{link.name}</Link>
         ))
       }
      </div>
