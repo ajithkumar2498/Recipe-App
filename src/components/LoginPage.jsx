@@ -32,22 +32,17 @@ function LoginPage() {
 			}
 	      } catch (error) 
 		  {
-		    toast.error(error.response.data.message || error.message)
+		    toast.error(error.response.data.message || "server error")
 	      }
 	}
   return <>
-    <div className="limiter">
+    <div className="container">
 		<div className="container-login100">
 			<div className="wrap-login100">
-				<div className="login100-pic js-tilt" data-tilt>
-					<img src={login} alt="IMG"/>
-				</div>
-
 				<form className="login100-form validate-form" onSubmit={handleLogin}>
 					<span className="login100-form-title">
 					 Login
 					</span>
-
 					<div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input className="input100" type="text" name="email" placeholder="Email"/>
 						<span className="focus-input100"></span>
@@ -55,7 +50,6 @@ function LoginPage() {
 							<i className="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
-
 					<div className="wrap-input100 validate-input" data-validate = "Password is required">
 						<input className="input100" type="password" name="password" placeholder="Password"/>
 						<span className="focus-input100"></span>
@@ -63,13 +57,11 @@ function LoginPage() {
 							<i className="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
 					<div className="container-login100-form-btn">
 						<button className="login100-form-btn">
 							Login
 						</button>
 					</div>
-
 					<div className="text-center p-t-136">
 						<Link to='/signup' className="txt2" >
 							Create your Account
