@@ -1,15 +1,15 @@
 import React from 'react'
 import CustomImages from './CustomImages'
-function RecipeCard() {
+function RecipeCard({re}) {
   return <>
      <div className="recipe-card">
-       <CustomImages imgSrc="/images/recepies/image_9.jpg" pt="65%"/>
+       <CustomImages imgSrc={re.image} pt="65%"/>
        <div className="recipe-card-info">
-        <img className="chef-img"src="/images/chefs/chef_01.jpg" alt="" />
-         <p className="recipe-title">Raviouli cake</p>
+        <img className="chef-img" src={re.Author} alt="" />
+         <p className="recipe-title">{re.title}</p>
          <p className="recipe-desc">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ut, commodi voluptate maiores hic nulla </p>
-         <a href="!" className='view-btn'> View Recipe </a>
+         <button  className='view-btn'> View Recipe </button>
        </div>
      </div>
   </>

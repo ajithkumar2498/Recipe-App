@@ -1,4 +1,4 @@
-// import login from "../../public/images/login.jpg"
+import login from "../../public/images/recepies/image_12.jpg"
 // import "../styles/loginpage.css"
 import { Link } from 'react-router-dom'
 import React, { useEffect } from 'react'
@@ -29,11 +29,11 @@ function SignUp() {
 			}
 	  }
   return <>
-		<div className="limiter">
+		<div className="container">
 			<div className="container-login100">
 				<div className="wrap-login100">
 					<div className="login100-pic js-tilt" data-tilt>
-						<img src="{login}" alt="IMG"/>
+						{/* <img src="{login} "alt="IMG"/> */}
 					</div>
 
 					<form className="login100-form validate-form" onSubmit={handleSignUp}>

@@ -34,7 +34,7 @@ function Navbar() {
     }
   return <>
    <div className="nav-bar container">
-     <Link href="#!" className='logo'>F<span>oo</span>diesZone</Link>
+     <Link to='/home' className='logo'>F<span>oo</span>diesZone</Link>
      <div className="nav-links">
       {
         Links.map((link) =>(
