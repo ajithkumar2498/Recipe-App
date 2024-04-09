@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-// import "../styles/loginpage.css"
 import { Link } from 'react-router-dom'
-import login from "../../public/images/recepies/image_11.jpg"
 import toast from 'react-hot-toast'
 import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from '../utils/ApiRoutes.jsx'
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight,  faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 function LoginPage() {
     const navigate = useNavigate()
 
@@ -36,43 +36,38 @@ function LoginPage() {
 	      }
 	}
   return <>
-    <div className="container">
-		<div className="container-login100">
-			<div className="wrap-login100">
-				<form className="login100-form validate-form" onSubmit={handleLogin}>
-					<span className="login100-form-title">
+		<div className="container">
+		<div className="container-login">
+		<form className="login100-form validate-form" onSubmit={handleLogin}>
+					<span className="header">
 					 Login
 					</span>
-					<div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div className="email" >
+					   <span className="symbol-input100">
+							<FontAwesomeIcon icon={faEnvelope}/>
+						</span>
 						<input className="input100" type="text" name="email" placeholder="Email"/>
-						<span className="focus-input100"></span>
-						<span className="symbol-input100">
-							<i className="fa fa-envelope" aria-hidden="true"></i>
-						</span>
 					</div>
-					<div className="wrap-input100 validate-input" data-validate = "Password is required">
+					<div className="password" >
+					    <span className="symbol-input100">
+							<FontAwesomeIcon icon={faLock}/>
+						</span>
 						<input className="input100" type="password" name="password" placeholder="Password"/>
-						<span className="focus-input100"></span>
-						<span className="symbol-input100">
-							<i className="fa fa-lock" aria-hidden="true"></i>
-						</span>
 					</div>
-					<div className="container-login100-form-btn">
-						<button className="login100-form-btn">
+					<div className="button">
+						<button className="btn1">
 							Login
 						</button>
 					</div>
-					<div className="text-center p-t-136">
+					<div className="link">
 						<Link to='/signup' className="txt2" >
 							Create your Account
-							<i className="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+							<FontAwesomeIcon icon={faArrowRight}/>
 						</Link>
 					</div>
-				</form>
-			</div>
-		</div>
+		</form>
 	</div>
-	
+		</div>
   </>
 }
 

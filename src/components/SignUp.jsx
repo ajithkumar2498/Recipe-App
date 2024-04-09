@@ -6,6 +6,8 @@ import toast from 'react-hot-toast'
 import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from "../utils/ApiRoutes.jsx"
 import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight, faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons"
 function SignUp() {
 	const navigate = useNavigate()
 
@@ -30,57 +32,48 @@ function SignUp() {
 	  }
   return <>
 		<div className="container">
-			<div className="container-login100">
+			<div className="container-login">
 				<div className="wrap-login100">
-					<div className="login100-pic js-tilt" data-tilt>
-						{/* <img src="{login} "alt="IMG"/> */}
-					</div>
-
 					<form className="login100-form validate-form" onSubmit={handleSignUp}>
-						<span className="login100-form-title">
+						<span className="header">
 						Sign Up
 						</span>
-
-						<div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<div className="name" >
+							<span className="symbol-input100">
+								<FontAwesomeIcon icon={faUser}/>
+							</span>
 							<input className="input100" type="text" name="name" placeholder="Name"/>
-							<span className="focus-input100"></span>
-							<span className="symbol-input100">
-								<i className="fa fa-envelope" aria-hidden="true"></i>
-							</span>
 						</div>
 
-						<div className="wrap-input100 validate-input" data-validate = "Password is required">
+						<div className="email" >
+						    <span className="symbol-input100">
+								<FontAwesomeIcon icon={faEnvelope}/>
+							</span>
 							<input className="input100" type="text" name="email" placeholder="Email"/>
-							<span className="focus-input100"></span>
-							<span className="symbol-input100">
-								<i className="fa fa-lock" aria-hidden="true"></i>
-							</span>
 						</div>
-						<div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-							<input className="input100" type="text" name="password" placeholder="Password"/>
-							<span className="focus-input100"></span>
+						<div className="password" >
 							<span className="symbol-input100">
-								<i className="fa fa-envelope" aria-hidden="true"></i>
+								<FontAwesomeIcon icon={faLock}/>
 							</span>
+							<input className="input100" type="text" name="password" placeholder="Password"/>
 						</div>
 
-						<div className="wrap-input100 validate-input" data-validate = "Password is required">
-							<input className="input100" type="password" name="password" placeholder="Confirm Password"/>
-							<span className="focus-input100"></span>
+						<div className="password" >
 							<span className="symbol-input100">
-								<i className="fa fa-lock" aria-hidden="true"></i>
+								<FontAwesomeIcon icon={faLock}/>
 							</span>
+							<input className="input100" type="password" name="confirm password" placeholder="Confirm Password"/>
 						</div>
 						
 						<div className="container-login100-form-btn">
-							<button className="login100-form-btn">
+							<button className="btn1">
 								sign up
 							</button>
 						</div>
-						<div className="text-center p-t-136">
+						<div className="link">
 							<Link to='/login' className="txt2" >
 								Login
-								<i className="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+								<FontAwesomeIcon icon={faArrowRight}/>
 							</Link>
 						</div>
 					</form>

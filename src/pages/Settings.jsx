@@ -30,9 +30,9 @@ function Settings() {
     },
     {
       "--background-color:":"rgb(29, 29, 29)",
-      "--backgroun d-light:":"rgb(77, 77, 77)",
+      "--background-light:":"rgb(77, 77, 77)",
       "--shadow-color":"rgba(0, 0, 0, 0.2)",
-     " --text-color": "#ffffff",
+     " --text-color": "#fff",
       "--text-light":"#eceaea",
     },
   ]
@@ -52,22 +52,23 @@ function Settings() {
      const _settings = {...settings}
      _settings["--primary-color"] = _color
      setSettings(_settings)
-     setPrimaryColor(i)
-   }
+      setPrimaryColor(i)
+   
+    }
    
    function changeFontSize(i){
     const _size = fontSizes[i]
     const _settings = {...settings}
     _settings["--font-size"] = _size.value
     setFontSize(i)
-    setSettings(_settings)
+      setSettings(_settings)
   }
   function changeAnimationSpeed(i){
     const _speed = animatonSpeeds[i]
     const _settings = {...settings}
     _settings["--animation-speed"] = _speed.value
     setAnimationSpeed(i)
-    setSettings(_settings)
+   setSettings(_settings)
    
   }
 
