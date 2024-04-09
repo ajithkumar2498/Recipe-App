@@ -152,7 +152,7 @@ img{
     width: 30em;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 1.5em;
+    // gap: 10em;
     padding: 4em;
     .header{
         display: flex;
@@ -254,7 +254,10 @@ img{
 }
 .txt2{
     color: var(--primary-color);
+    padding: .3em .5em;
     font-weight:500;
+    font-size: .8em;
+    
 }
 }
 
