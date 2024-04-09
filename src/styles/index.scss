@@ -151,7 +151,7 @@ img{
     border-radius: 5px;
     width: 30em;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: repeat(1, 1fr);
     gap: 1.5em;
     padding: 4em;
     .header{
@@ -352,8 +352,8 @@ img{
             width: 6em;
             padding: .2em;
         }
-        input{
-            width: 20px;
+        .input100{
+            width:4em;
             &:hover{
                 border-bottom: 2px solid var(--primary-color);
             }
