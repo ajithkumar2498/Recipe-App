@@ -33,7 +33,7 @@ function SignUp() {
   return <>
 		<div className="container">
 			<div className="container-login">
-				<div className="wrap-login100">
+
 					<form className="login100-form validate-form" onSubmit={handleSignUp}>
 						<span className="header">
 						Sign Up
@@ -79,7 +79,6 @@ function SignUp() {
 					</form>
 				</div>
 			</div>
-		</div>
      </>
 }
 
