@@ -55,7 +55,7 @@ function SignUp() {
 							<span className="symbol-input100">
 								<FontAwesomeIcon icon={faLock}/>
 							</span>
-							<input className="input100" type="text" name="password" placeholder="Password"/>
+							<input className="input100" type="password" name="password" placeholder="Password"/>
 						</div>
 
 						<div className="password" >

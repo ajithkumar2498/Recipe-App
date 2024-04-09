@@ -13,7 +13,6 @@ function Settings() {
     "--animation-speed":1
   })
   useEffect(()=>{
-    console.log(settings)
      const root = document.documentElement
      for(let key in settings){
       root.style.setProperty(key, settings[key])
@@ -52,7 +51,9 @@ function Settings() {
      const _settings = {...settings}
      _settings["--primary-color"] = _color
      setSettings(_settings)
-      setPrimaryColor(i)
+      localStorage.setItem("primaryColor",setPrimaryColor(i))
+      console.log(setPrimaryColor(i))
+      console.log(setSettings(_settings))
    
     }
    

@@ -140,27 +140,28 @@ img{
     padding-block: 2vw;
 }
 .container{
-    padding-inline: 17vw;
+    padding-inline: 18vw;
 }
 
 .container-login{
     box-shadow: 1px 5px 8px var(--shadow-color);
     border: 2px solid var(--primary-color);
-    background-image: url("/public/images/recepies/image_22.jpg");
-    mask-image: url("/public/images/chefs/chef_04.jpg");
+    background-image: url("/public/images/recepies/image_6.jpg");
     background-size: cover;
     border-radius: 5px;
     width: 30em;
     display: grid;
     grid-template-columns: auto;
     gap: 1.5em;
-    padding: 5rem;
+    padding: 4em;
     .header{
         display: flex;
         justify-content: center;
-        color: var(--primary-color);
+        color: #ffffff;
         font-weight: bold;
         font-size: 1.5em;
+        background-color: var(--primary-color);
+        border-radius: 10px;
     }
     .email{
         margin-top: 2.5rem;
@@ -174,12 +175,11 @@ img{
        color:var(--primary-color);
        }
        .input100{
-        background: transparent;
+        background-color: transparent;
         width:24em;
         border: none;
         outline: none;
         height:2.5em;
-        color: #fff;
         font-weight: 500;
         &::placeholder{
             color: #fff;
@@ -340,6 +340,23 @@ img{
         }
         .footer-section:nth-child(3){
             grid-column:  span 2;
+        }
+    }
+    .container-login{
+        padding: 1.8em;
+        width: 20em;
+        .header{
+            font-size: 1.2em;
+            display: flex;
+            flex: none;
+            width: 6em;
+            padding: .2em;
+        }
+        input{
+            width: 20px;
+            &:hover{
+                border-bottom: 2px solid var(--primary-color);
+            }
         }
     }
 }

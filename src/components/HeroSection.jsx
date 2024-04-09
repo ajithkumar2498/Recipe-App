@@ -1,7 +1,9 @@
 import React from 'react'
 import CustomImages from './CustomImages'
+import { useNavigate } from "react-router-dom"
 
 function HeroSection() {
+    let navigate = useNavigate()
     const images = [
          "/images/recepies/image_1.jpg",
          "/images/recepies/image_3.jpg",
@@ -19,7 +21,7 @@ function HeroSection() {
                 <h1 className="title"> What are We About</h1>
                 <p className="para">FoodiesZone is a place where you can please your soul and tummy with delicious food recepies of all cusine.
                  And our service is absolutely free. So Start Exploring Now </p>
-                <button className="btn1">explore now</button>
+                <button className="btn1"onClick={()=> navigate('/recepies')}>explore now</button>
             </div>
             <div className="col gallery">
                 {images.map ((src,index)=>
