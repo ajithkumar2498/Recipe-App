@@ -12,6 +12,8 @@ import Dashboard from "./components/Dashboard"
 import UserGuard from "./utils/UserGuard"
 import Profile from "./components/Profile"
 import Settings from "./pages/Settings"
+import RecepieDetails from "./components/RecepieDetails"
+
 
 function App() {
  
@@ -27,7 +29,7 @@ function App() {
               <Route path='/settings' element={<Settings/>}/>
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/signup' element={<SignUp/>}/>
-           
+              <Route path='/recipecard' element={<RecepieDetails/>}/>
                   <Route path='/dashboard' element={<AdminGuard><Dashboard/></AdminGuard>}/>
             
               <Route path='/profile/:id' element={<UserGuard><Profile/></UserGuard>}/>

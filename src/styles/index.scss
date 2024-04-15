@@ -38,6 +38,7 @@ img{
     text-transform: uppercase;
     padding: .75em 1em;
     font-size: 1em;
+    cursor: pointer;
     font-weight: bold  ; 
     letter-spacing: 1px;
     border-radius: 3px;
@@ -262,6 +263,43 @@ img{
 }
 }
 
+.recipe-container{
+    .btn1{
+        color: var(--background-light);
+        margin-top: -1em;
+        margin-bottom: 0.9em;
+        width: 6em;
+        padding: .5em;
+        border-radius: 2px;
+        font-size: 17px;
+        text-transform: lowercase;
+        .back-icon{
+            padding-right: .6em;
+        }
+    }
+    .recipe-image{
+        img{
+            width: 60vw;
+            height: 17em;
+            z-index: -1;
+        }
+    }
+    .chef-image{
+        img{
+            margin-top:-6em;
+            margin-left: 2em;
+            width:8em;
+            height: 8em;
+            border-radius: 50%;
+            z-index: 2;
+            border: 3px solid whitesmoke;
+        }
+    }
+  .Procedures{
+    display: flex;
+  }
+}
+
 
 
 @media screen and (max-width:1280px) {
@@ -295,6 +333,7 @@ img{
             margin-bottom: 2em;
         }
     }
+
     .skill-items{
      display: inline-block;
      margin: .75em;

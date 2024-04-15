@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CustomImages from './CustomImages'
+import { useNavigate } from 'react-router-dom'
+
 function RecipeCard({re}) {
+  const navigate = useNavigate()
+
+  // useEffect(()=>{
+
+  // },[])
   return <>
      <div className="recipe-card">
        <CustomImages imgSrc={re.image} pt="65%"/>
@@ -9,7 +16,7 @@ function RecipeCard({re}) {
          <p className="recipe-title">{re.title}</p>
          <p className="recipe-desc">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ut, commodi voluptate maiores hic nulla </p>
-         <button  className='view-btn'> View Recipe </button>
+         <button  className='view-btn' onClick={()=> navigate('/recipecard')}> View Recipe </button>
        </div>
      </div>
   </>
