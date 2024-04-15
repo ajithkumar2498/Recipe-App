@@ -277,6 +277,14 @@ img{
             padding-right: .6em;
         }
     }
+    .recipe-name{
+        padding-right: 15em;
+        display: flex;
+       justify-content: end;
+       font-size: 30px;
+       color: #0A0A0A;
+       font-weight: 700;
+    }
     .recipe-image{
         img{
             width: 60vw;
@@ -286,10 +294,10 @@ img{
     }
     .chef-image{
         img{
-            margin-top:-6em;
+            margin-top:-5em;
             margin-left: 2em;
-            width:8em;
-            height: 8em;
+            width:9em;
+            height: 9em;
             border-radius: 50%;
             z-index: 2;
             border: 3px solid whitesmoke;
@@ -297,7 +305,44 @@ img{
     }
   .Procedures{
     display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-evenly;
+    .ingredients{
+        span{
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 6px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 6px var(--shadow-color);
+        }
+        .ingredient{
+                margin-top: 2em;
+                list-style-type: none;
+                color: var(--text-color);
+          }
+    }
+    .Instructions{
+        span{
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 6px;
+            border-radius: 3px;
+            box-shadow: 1px 3px 6px var(--shadow-color);
+        }
+        .instruction{
+                list-style-type: none;
+                margin-top: 2em;
+                .fa{
+                    margin-right: 10px;
+                    color: var(--primary-color);
+                }
+          }
+    }
+   
+    
   }
+ 
 }
 
 

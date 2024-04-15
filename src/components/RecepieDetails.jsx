@@ -14,39 +14,41 @@ function RecepieDetails({re}) {
         <img src={recipe} alt="" />
         <div className="chef-image">
         <img src={chef} alt="" />
-        </div>
         <div className="recipe-name">
           Chicken
         </div>
+        </div> 
       </div>
        <div className="Procedures">
-        <div className="ingrdients">
-          <li className="ingredient">
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-            <ol>hiii</ol>
-          </li>
+        <div className="ingredients">
+          <span>Ingredients</span>
+          <ul className="ingredient">
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+            <li>hiii</li>
+          </ul>
         </div>
         <div className="Instructions">
-           <li className="instruction">
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-            <ol><FontAwesomeIcon icon={faSpoon}/>hii</ol>
-           </li>
+        <span>Instructions</span>
+           <ul className="instruction">
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+           </ul>
         </div>
        </div>
     </div>
