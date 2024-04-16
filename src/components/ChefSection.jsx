@@ -46,13 +46,7 @@ function ChefSection() {
         {
             chefs.map (chef=> <ChefCard key={chef.name} chef={chef}/>)
         }
-        {/* <ChefCard/>
-        <ChefCard/>
-        <ChefCard/>
-        <ChefCard/>
-        <ChefCard/>
-        <ChefCard/> */}
-      </div>
+       </div>
    </div>
   </>
 }

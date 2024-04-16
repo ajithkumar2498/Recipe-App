@@ -9,7 +9,7 @@ function RecepieDetails({re}) {
   const navigate = useNavigate()
   return <>
     <div className="recipe-container">
-      <button className="btn1 " onClick={()=> navigate('/recepies')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon>back</button>
+      <button className="btn1 " onClick={()=> navigate('/profile')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
       <div className="recipe-image">
         <img src={recipe} alt="" />
         <div className="chef-image">
@@ -23,10 +23,7 @@ function RecepieDetails({re}) {
         <div className="ingredients">
           <span>Ingredients</span>
           <ul className="ingredient">
-            <li>hiii</li>
-            <li>hiii</li>
-            <li>hiii</li>
-            <li>hiii</li>
+            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus non sequi quaerat molestiae natus quae dolor, minima quibusdam quod optio quos ea fugit similique a explicabo odio, nesciunt reiciendis ipsum.</li>
             <li>hiii</li>
             <li>hiii</li>
             <li>hiii</li>
@@ -39,7 +36,7 @@ function RecepieDetails({re}) {
         <div className="Instructions">
         <span>Instructions</span>
            <ul className="instruction">
-            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
+            <li><FontAwesomeIcon className="fa"icon={faSpoon}/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium exercitationem illo deserunt quas voluptatibus. Natus dolores, nam officiis corporis qui ratione beatae saepe temporibus ex, eveniet dignissimos cupiditate, eos vel?</li>
             <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
             <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>
             <li><FontAwesomeIcon className="fa"icon={faSpoon}/>hii</li>

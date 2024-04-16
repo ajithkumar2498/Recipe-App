@@ -1,7 +1,7 @@
 import { Link,useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
-import { faRightToBracket, faBowlFood, faGear, faHome} from "@fortawesome/free-solid-svg-icons"
+import { faRightToBracket, faBowlFood, faGear, faHome, faPlusSquare} from "@fortawesome/free-solid-svg-icons"
 
 
 function Navbar() {
@@ -17,6 +17,11 @@ function Navbar() {
         name:"RECEPIES",
         path:"/recepies",
         icon:faBowlFood
+      },
+      {
+        name:"ADD RECEPIES",
+        path:"/addrecepies",
+        icon:faPlusSquare
       },
       {
         name:"LOGIN",

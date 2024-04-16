@@ -2,7 +2,7 @@
     --background-color:#fff;
     --background-light:#fff;
     --shadow-color: rgba(0,0,0,0.2);
-    --primary-color: rgb(255,0,86);
+    --primary-color: rgb(255, 0, 86);
     --text-color: #0A0A0A;
     --text-light:#575757;
     --font-size: 16px;
@@ -75,11 +75,11 @@ img{
         width: 50%;
     }
 }
-@import "partials/hero-section.scss";
 @import "partials/improve-section.scss";
+@import "partials/hero-section.scss";
 @import "partials/quote-section.scss";
 @import "partials/chef-section.scss";
-@import "partials/previous-searches";
+@import "partials/previous-searches.scss";
 
 .options-container{
     box-shadow: 0 5px 10px var(--shadow-color);
@@ -132,7 +132,7 @@ img{
     
 }
 @import "partials/_footer.scss";
-@import "partials/recipe-card.scss";
+@import "partials/_recipe-card.scss";
 
 
  
@@ -269,18 +269,21 @@ img{
         color: var(--background-light);
         margin-top: -1em;
         margin-bottom: 0.9em;
-        width: 6em;
+        width: 3em;
         padding: .5em;
         border-radius: 4px;
         font-size: 17px;
         text-transform: lowercase;
         .back-icon{
             padding-right: .6em;
+            padding-left: .4em;
         }
     }
     .recipe-name{
         padding-right: 15em;
         display: flex;
+        flex-grow: 1;
+        flex-basis: 200;
        justify-content: end;
        font-size: 30px;
        color: #0A0A0A;
@@ -291,6 +294,7 @@ img{
             width: 60vw;
             height: 17em;
             z-index: -1;
+            border-radius: 5px;
         }
     }
     .chef-image{
@@ -346,8 +350,98 @@ img{
  
 }
 
+.profile-container{
+    box-shadow: 3px 6px 12px var(--shadow-color);
+    background-image:url("/public/images/recepies/image_26.jpg") ;
+    border-radius: 5px;
+    object-fit: cover;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 28rem;
+    .title{
+        color: #fff;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: 450;
+    }
+    .image{
+        display: flex;
+        justify-content: center;
+        img{
+            height: 9.5rem;
+            width: 9.5rem;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+    }
+    .details{
+        .name{
+            color: #fff;
+            font-weight: 400;
+            padding: .8rem;
+        }
+        .email{
+            color: #fff;
+            font-weight: 400;
+            padding: .8rem;
+        }
+    }
+    .logout{
+        margin-top: .5em;
+    }
+}
+.addrecipe{
+    margin-left: -10em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1em;
+    box-shadow: 3px 6px 12px var(--shadow-color);
+    background-image:url("/public/images/recepies/image_16.jpg") ;
+    width: 48vw;
+    border-radius: 5px;
+    object-fit: cover;
+    height: 35em;
+    form{
+        padding: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    flex-direction: row;
+        label{
+            font-weight: 500; 
+            margin-top: 1em;
+            color: var(--primary-color);
+          }
+          input{
+              width: 38em;
+              height: 2.5em;
+              padding-top: 1em;
+              margin-left: 1em;
+              margin-top: 1em;
+              border: none;
+              border-radius: 5px;
+          }
+          textarea{
+            width: 38em;
+            border: none;
+            margin-left: 1em;
+            margin-top: 1em;
+              border-radius: 5px;
+          }
+            .add{
+                margin-top: 2em;
+                width: 100%;
+                font-size: 25px;
+                padding: .2em 10em .2em 10em;
+                svg{
+                  font-size: 25px;
+                }
+            }        
+    }
 
-
+}
 @media screen and (max-width:1280px) {
     .container{
         padding-inline: 18vw;
@@ -359,8 +453,6 @@ img{
         padding-inline: 12vw;
     }
 }
-
-
 
 @media screen and (max-width:768px) {
     .nav-bar{

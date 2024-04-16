@@ -13,6 +13,7 @@ import UserGuard from "./utils/UserGuard"
 import Profile from "./components/Profile"
 import Settings from "./pages/Settings"
 import RecepieDetails from "./components/RecepieDetails"
+import AddRecipe from "./components/AddRecipe"
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
               <Route path='/signup' element={<SignUp/>}/>
               <Route path='/recipecard' element={<RecepieDetails/>}/>
               <Route path='/recepies' element={<AdminGuard><Recepies /></AdminGuard>}/>
-              <Route path='/profile/:id' element={<UserGuard><Profile/></UserGuard>}/>
+              <Route path='/profile' element={<Profile/>}/>
+              <Route path='/addrecepies' element={<AddRecipe/>}/>
               <Route path='*' element={<HomePage/>}/>
             </Routes>
       </div>
