@@ -17,19 +17,21 @@ function Settings() {
      for(let key in settings){
       root.style.setProperty(key, settings[key])
      }
+     
+     
   },[settings])
   const [theme, setTheme]=useState("light")
   const themes = [
     {
-      "--background-color:":"#fff",
-      "--background-light:":"#fff",
+      "--background-color":"#fff",
+      "--background-light":"#fff",
       "--shadow-color":"rgba(0, 0, 0, 0.2)",
      " --text-color": "#0A0A0A",
       "--text-light":"#575757",
     },
     {
-      "--background-color:":"rgb(29, 29, 29)",
-      "--background-light:":"rgb(77, 77, 77)",
+      "--background-color":"rgb(29, 29, 29)",
+      "--background-light":"rgb(77, 77, 77)",
       "--shadow-color":"rgba(0, 0, 0, 0.2)",
      " --text-color": "#fff",
       "--text-light":"#eceaea",
@@ -51,10 +53,11 @@ function Settings() {
      const _settings = {...settings}
      _settings["--primary-color"] = _color
      setSettings(_settings)
-      localStorage.setItem("primaryColor",setPrimaryColor(i))
-      console.log(setPrimaryColor(i))
-      console.log(setSettings(_settings))
-   
+      setPrimaryColor(i)
+      console.log(i)
+      console.log(_settings)
+      localStorage.setItem("primaryColors",i)
+      localStorage.setItem("PrimaryColor",_color)
     }
    
    function changeFontSize(i){
@@ -137,12 +140,13 @@ function Settings() {
       <h2>Preferred Color</h2>
       <div className="options-container">
                  {primaryColors.map((color, index)=>(
-                <div className="option light" key={index} style={{backgroundColor: color}} onClick={()=>changeColor(index)}>          
+                  
+                <div className="option light" key={index} style={{backgroundColor: color}} onClick={()=>changeColor(index) }>      
                 {primaryColor == index && (
                   <div className="check">
                     <FontAwesomeIcon icon={faCheck}/>
                   </div>
-                )}
+                ) }
             </div>
           ))}
       </div>
