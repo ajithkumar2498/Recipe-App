@@ -1,10 +1,10 @@
 const ApiRoutes = {
     LOGIN:{
-        path:"/user/login",
+        path:"/recipe/login",
         Authenticate:false
     },
     SignUp:{
-        path:"/user/signup",
+        path:"/recipe/signup",
         Authenticate:false
     }
 }

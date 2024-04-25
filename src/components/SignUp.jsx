@@ -7,19 +7,20 @@ import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from "../utils/ApiRoutes.jsx"
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight, faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faArrowRight, faEnvelope, faLock, faSignIn, faUser } from "@fortawesome/free-solid-svg-icons"
+import { Formik, Form } from 'formik'
+import * as yup from "yup"
 function SignUp() {
 	const navigate = useNavigate()
 
 	useEffect(()=>{
        sessionStorage.clear()
 	},[])
-	const handleSignUp = async (e)=>{
-		e.preventDefault()
+	const handleSignUp = async (values, helpers)=>{
+	
 		try {
-		  let formData = new FormData(e.target)
-		  let data = Object.fromEntries(formData)
-		  let res = await AxiosService.post(ApiRoutes.SignUp.path, data)
+		  let formData = {...values}
+		  let res = await AxiosService.post(ApiRoutes.SignUp.path, formData)
 			  if(res.status === 201){
 				  
 				  toast.success(res.data.message)
@@ -30,53 +31,86 @@ function SignUp() {
 			  toast.error(error.response.data.message || error.message)
 			}
 	  }
+	  const InitialValues = {
+		name:"",
+		email:"",
+		password:"",
+		confirmpassword:""
+	}
+	const ValidateSchema = yup.object().shape({
+		name: yup.string().required(),
+		email: yup.string().email().required(),
+		password: yup.string().required(),
+		confirmpassword: yup.string().required()
+	})
   return <>
 		<div className="container">
 			<div className="container-login">
-
-					<form className="login100-form validate-form" onSubmit={handleSignUp}>
-						<span className="header">
-						Sign Up
-						</span>
-						<div className="name" >
-							<span className="symbol-input100">
-								<FontAwesomeIcon icon={faUser}/>
-							</span>
-							<input className="input100" type="text" name="name" placeholder="Name"/>
-						</div>
-
-						<div className="email" >
-						    <span className="symbol-input100">
-								<FontAwesomeIcon icon={faEnvelope}/>
-							</span>
-							<input className="input100" type="text" name="email" placeholder="Email"/>
-						</div>
-						<div className="password" >
-							<span className="symbol-input100">
-								<FontAwesomeIcon icon={faLock}/>
-							</span>
-							<input className="input100" type="password" name="password" placeholder="Password"/>
-						</div>
-
-						<div className="password" >
-							<span className="symbol-input100">
-								<FontAwesomeIcon icon={faLock}/>
-							</span>
-							<input className="input100" type="password" name="confirm password" placeholder="Confirm Password"/>
-						</div>
-						
-						<div className="container-login100-form-btn">
-							<button className="btn1">
-								sign up
-							</button>
-						</div>
-						<div className="link">
-							<Link to='/login' className="txt2" >
-								Login
-								<FontAwesomeIcon icon={faArrowRight}/>
-							</Link>
-						</div>
-					</form>
+                    <Formik initialValues={InitialValues} validationSchema={ValidateSchema} onSubmit={handleSignUp} >
+						{(props)=>{
+							
+                            console.log(props)
+							return(
+								<Form className="login100-form validate-form" >
+								<span className="header">
+								Sign Up
+								</span>
+								<div className="name" >
+									<span className="symbol-input100">
+										<FontAwesomeIcon icon={faUser}/>
+									</span>
+									<input className="input100" type="text" name="name" placeholder="Name" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.name}/>
+									{props.errors.name && props.touched.name &&(
+                                     <p className="error">{props.errors.name}</p>
+								)}
+								</div>
+		
+								<div className="email" >
+									<span className="symbol-input100">
+										<FontAwesomeIcon icon={faEnvelope}/>
+									</span>
+									<input className="input100" type="text" name="email" placeholder="Email" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.email}/>
+									{props.errors.email && props.touched.email &&(
+                                     <p className="error">{props.errors.email}</p>
+								)}
+								</div>
+								<div className="password" >
+									<span className="symbol-input100">
+										<FontAwesomeIcon icon={faLock}/>
+									</span>
+									<input className="input100" type="password" name="password" placeholder="Password" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.password}/>
+									{props.errors.password && props.touched.password &&(
+                                     <p className="error">{props.errors.password}</p>
+								)}
+								</div>
+		
+								<div className="password" >
+									<span className="symbol-input100">
+										<FontAwesomeIcon icon={faLock}/>
+									</span>
+									<input className="input100" type="password" name="confirmpassword" placeholder="Confirm Password" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.confirmpassword}/>
+									{props.errors.confirmpassword && props.touched.confirmpassword &&(
+                                     <p className="error">{props.errors.confirmpassword}</p>
+								)}
+								</div>
+								
+								<div className="container-login100-form-btn">
+									<button className="btn1">
+										sign up
+										<FontAwesomeIcon icon={faSignIn}/>
+									</button>
+								</div>
+								<div className="link">
+									<Link to='/login' className="txt2" >
+										Login
+										<FontAwesomeIcon icon={faArrowRight}/>
+									</Link>
+								</div>
+							</Form>
+							)
+						}}
+				
+					</Formik>
 				</div>
 			</div>
      </>

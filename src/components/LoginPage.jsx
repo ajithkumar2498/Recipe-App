@@ -5,19 +5,23 @@ import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from '../utils/ApiRoutes.jsx'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight,  faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight,  faEnvelope, faLock, faSign, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { Formik, Form } from 'formik'
+import * as yup from "yup"
 function LoginPage() {
     const navigate = useNavigate()
 
 	useEffect(()=>{
        sessionStorage.clear()
 	},[])
-	const handleLogin = async (e)=>{
-      e.preventDefault()
+	const handleLogin = async (values, helpers,e)=>{
+		// console.log(values)
+		// console.log(helpers)
 	  try {
-		let formData = new FormData(e.target)
-		let data = Object.fromEntries(formData)
-		let res = await AxiosService.post(ApiRoutes.LOGIN.path, data)
+		let formData = {...values}
+		console.log(formData)
+		// let data = Object.fromEntries(formData)
+		let res = await AxiosService.post(ApiRoutes.LOGIN.path, formData) 
 			if(res.status === 200){
 				sessionStorage.setItem('token', res.data.token)
 				sessionStorage.setItem('role', res.data.role)
@@ -25,7 +29,7 @@ function LoginPage() {
 				sessionStorage.setItem('id', res.data.id)
 				toast.success(res.data.message)
 				if(res.data.role === "admin"){
-                    navigate('/dashboard')
+                    navigate('/home')
 				}else{
 					navigate(`/profile/${res.data.id}`)
 				}
@@ -35,38 +39,66 @@ function LoginPage() {
 		    toast.error(error.response.data.message || "server error")
 	      }
 	}
+	const InitialValues = {
+		email:"",
+		password:""
+	}
+	const ValidateSchema = yup.object().shape({
+		
+		email: yup.string().email().required(),
+		password: yup.string().required()
+	})
   return <>
 		<div className="container">
-		<div className="container-login">
-		<form className="login100-form validate-form" onSubmit={handleLogin}>
-					<span className="header">
-					 Login
-					</span>
-					<div className="email" >
-					   <span className="symbol-input100">
-							<FontAwesomeIcon icon={faEnvelope}/>
+			<div className="container-login">
+				<Formik initialValues={InitialValues} validationSchema={ValidateSchema} onSubmit={handleLogin}>
+				 {(props)=>{
+					// console.log(props)
+					return(
+						<Form className="login100-form validate-form">
+						<span className="header">
+								Login
 						</span>
-						<input className="input100" type="text" name="email" placeholder="Email"/>
-					</div>
-					<div className="password" >
-					    <span className="symbol-input100">
-							<FontAwesomeIcon icon={faLock}/>
-						</span>
-						<input className="input100" type="password" name="password" placeholder="Password"/>
-					</div>
-					<div className="button">
-						<button className="btn1">
+						<div className="email" >
+								<span className="symbol-input100">
+										<FontAwesomeIcon icon={faEnvelope}/>
+								</span>
+								<input className="input100" type="text" name="email" placeholder="Email" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.email}/>
+								{props.errors.email && props.touched.email &&(
+                                     <p className="error">{props.errors.email}</p>
+								)}
+								
+						</div>
+						<div className="password" >
+							<span className="symbol-input100">
+								<FontAwesomeIcon icon={faLock}/>
+							</span>
+							<input className="input100" type="password" name="password" placeholder="Password" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.password}/>
+							{props.errors.password && props.touched.password &&(
+                                     <p className="error">{props.errors.password}</p>
+								)}
+								
+						</div>
+						<div className="button">
+							<button className="btn1">
 							Login
-						</button>
-					</div>
-					<div className="link">
-						<Link to='/signup' className="txt2" >
-							Create your Account
-							<FontAwesomeIcon icon={faArrowRight}/>
-						</Link>
-					</div>
-		</form>
-	</div>
+							<FontAwesomeIcon icon={faSignInAlt}/>
+							</button>
+						</div>
+						<div className="link">
+							<Link to='/signup' className="txt2" >
+								Create your Account
+								<FontAwesomeIcon icon={faArrowRight}/>
+							</Link>
+						</div>
+					  </Form>
+					)
+                   
+				 }}
+				  
+				</Formik>
+				
+			</div>
 		</div>
   </>
 }

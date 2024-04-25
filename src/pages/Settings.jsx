@@ -1,22 +1,18 @@
 import React, { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
 function Settings() {
-  const obj = {
-    "1":"a",
-    1:"b",
-    [1]:"c"
-  }
-  console.log(obj["1"])
+
   const [settings, setSettings] = useState({
     "--background-color:":"#fff",
     "--background-light:":"#fff",
     "--shadow-color":"rgba(0, 0, 0, 0.2)",
-    "--primary-color":"rgb(255, 0, 86)",
+    "--primary-color": localStorage.getItem("PrimaryColor") ,
     " --text-color": "#0A0A0A",
     "--text-light":"#575757",
-    "--font-size": "16px",
-    "--animation-speed":1
+    "--font-size": localStorage.getItem("fontSizes"),
+    "--animation-speed":localStorage.getItem("animationSpeed") 
   })
   useEffect(()=>{
      const root = document.documentElement
@@ -62,23 +58,29 @@ function Settings() {
       setPrimaryColor(i)
       console.log(i)
       console.log(_settings)
-      localStorage.setItem("primaryColors",i)
-      localStorage.setItem("PrimaryColor",_color)
+      window.localStorage.setItem("primaryColors",i)
+      window.localStorage.setItem("PrimaryColor",_color)
     }
    
    function changeFontSize(i){
     const _size = fontSizes[i]
+
     const _settings = {...settings}
     _settings["--font-size"] = _size.value
     setFontSize(i)
       setSettings(_settings)
+      window.localStorage.setItem("fontSize",i)
+      window.localStorage.setItem("fontSizes",_size.title)
   }
   function changeAnimationSpeed(i){
     const _speed = animatonSpeeds[i]
+    console.log(_speed.title)
     const _settings = {...settings}
     _settings["--animation-speed"] = _speed.value
     setAnimationSpeed(i)
    setSettings(_settings)
+      window.localStorage.setItem("animationSpeed",i)
+      window.localStorage.setItem("animationSpeeds",_speed.title)
    
   }
 
