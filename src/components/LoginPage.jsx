@@ -22,7 +22,9 @@ function LoginPage() {
 		console.log(formData)
 		// let data = Object.fromEntries(formData)
 		let res = await AxiosService.post(ApiRoutes.LOGIN.path, formData) 
+		console.log(res)
 			if(res.status === 200){
+				
 				sessionStorage.setItem('token', res.data.token)
 				sessionStorage.setItem('role', res.data.role)
 				sessionStorage.setItem('name', res.data.name)

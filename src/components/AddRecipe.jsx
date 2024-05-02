@@ -34,36 +34,36 @@ function AddRecipe() {
           console.log(props)
               return( 
                 <Form action=""  >
-                <div><label >Recipe Name :</label> <input type="text" name="Recipename"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Recipename}/>
+                <div className='fields'><label >Recipe Name :</label> <input type="text" name="Recipename"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Recipename}/>
                 {
                   props.errors.Recipename && props.touched.Recipename && (
                     <p className="error">{props.errors.Recipename}</p>
                   )
                 }
                 </div>
-                <div><label >Author Name :</label> <input type="text" name="Authorname" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Authorname}  />
+                <div className='fields'><label >Author Name :</label> <input type="text" name="Authorname" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Authorname}  />
                 {
                   props.errors.Authorname && props.touched.Authorname && (
                     <p className="error">{props.errors.Authorname}</p>
                   )
                 }</div>
-                <div><label  htmlFor="file" className="file-upload" > <p>upload Author Image </p></label> <input type="file" className="file" name="AuthorImage" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.AuthorImage}  />
+                <div className='fields'><label  htmlFor="file" className="file-upload" > <p>upload Author Image </p></label> <input type="file" className="file" name="AuthorImage" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.AuthorImage}  />
                 {props.errors.AuthorImage && props.touched.AuthorImage && (
                     <p className="error">{props.errors.AuthorImage}</p>
                   )}</div>
-                <div><label >Ingredients :</label> <input type="text" name="Ingrdients"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Ingredients}  /> 
+                <div className='fields'><label >Ingredients :</label> <input type="text" name="Ingrdients"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Ingredients}  /> 
                 {
                   props.errors.Ingredients && props.touched.Ingredients && (
                     <p className="error">{props.errors.Ingredients}</p>
                   )
                 }</div>
-                <div><label  htmlFor="file" className="file-upload" > <p>upload Recipe Image </p></label> <input type="file" className="file"  name="RecipeImage"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.RecipeImage} />
+                <div className='fields'><label  htmlFor="file" className="file-upload" > <p>upload Recipe Image </p></label> <input type="file" className="file"  name="RecipeImage"  onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.RecipeImage} />
                 {
                   props.errors.RecipeImage && props.touched.RecipeImage && (
                     <p className="error">{props.errors.RecipeImage}</p>
                   )
                 }</div>
-                <div><label >Procedure :</label> <textarea name="Procedure"cols="30" rows="10" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Procedure} ></textarea>
+                <div className='fields'><label >Procedure :</label> <textarea name="Procedure"cols="30" rows="10" onChange={props.handleChange} onBlur={props.handleBlur} value={props.values.Procedure} ></textarea>
                 {
                   props.errors.Procedure && props.touched.Procedure && (
                     <p className="error">{props.errors.Procedure}</p>

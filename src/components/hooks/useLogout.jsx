@@ -4,7 +4,7 @@ function useLogout (){
     
     return ()=>{
         sessionStorage.clear()
-        navigate('/login')
+        navigate('/home')
     }
 }
 
