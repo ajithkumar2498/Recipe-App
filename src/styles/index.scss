@@ -468,6 +468,35 @@ img{
     .container{
         padding-inline: 12vw;
     }
+    .recipe-container{
+        .recipe-name{
+          padding-right: 10em;
+          display: flex;
+          flex-grow: 1;
+          flex-basis: 200;
+         justify-content: end;
+         font-size: 25px;
+        }
+        .recipe-image{
+          img{
+              width: 87vw;
+              height: 17em;
+              z-index: -1;
+              border-radius: 5px;
+          }
+        }
+        .chef-image{
+          img{
+              margin-top:-5em;
+              margin-left: 2em;
+              width:7em;
+              height: 7em;
+              border-radius: 50%;
+              z-index: 2;
+              border: 3px solid whitesmoke;
+          }
+        }
+      }
     .addrecipe{
         width: 70vw;
         margin-left: -10em;
@@ -558,6 +587,9 @@ img{
         }
     }
     .recipe-container{
+        .btn1{
+           margin-top: 1em;
+        }
       .recipe-name{
         padding-right: 10em;
         display: flex;
@@ -569,7 +601,7 @@ img{
       .recipe-image{
         img{
             width: 87vw;
-            height: 17em;
+            height: 12em;
             z-index: -1;
             border-radius: 5px;
         }
@@ -578,8 +610,8 @@ img{
         img{
             margin-top:-5em;
             margin-left: 2em;
-            width:7em;
-            height: 7em;
+            width:5em;
+            height: 5em;
             border-radius: 50%;
             z-index: 2;
             border: 3px solid whitesmoke;
