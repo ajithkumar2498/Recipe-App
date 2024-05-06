@@ -30,7 +30,7 @@ function LoginPage() {
 				sessionStorage.setItem('name', res.data.name)
 				sessionStorage.setItem('id', res.data.id)
 				toast.success(res.data.message)
-				if(res.data.role === "admin"){
+				if(res.data.role === "user"){
                     navigate('/home')
 				}else{
 					navigate(`/profile/${res.data.id}`)

@@ -39,7 +39,7 @@ function Navbar() {
     }
   return <>
    <div className="nav-bar container">
-     <Link to='/home' className='logo'>F<span>oo</span>diesZone</Link>
+     <Link to='/home' className='logo'>R<span>ec</span>epiesZone</Link>
      <div className="nav-links">
       {
         Links.map((link) =>(

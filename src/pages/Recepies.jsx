@@ -4,74 +4,74 @@ import RecipeCard from '../components/RecipeCard'
 function Recepies() {
   const recipes = [
     {
-      title:"noodles",
-      image:"images/recepies/image_1.jpg",
-      Author:"images/chefs/chef_01.jpg"
+      recipename:"noodles",
+      recipeimage:"recipeimages/recepies/recipeimage_1.jpg",
+      Author:"recipeimages/chefs/chef_01.jpg"
     },
     {
-      title:"chicken pan pizza",
-      image:"images/recepies/image_2.jpg",
-      Author:"images/chefs/chef_01.jpg"
+      recipename:"chicken pan pizza",
+      recipeimage:"recipeimages/recepies/recipeimage_2.jpg",
+      Author:"recipeimages/chefs/chef_01.jpg"
     },
     {
-      title:"Chicken kebab",
-      image:"images/recepies/image_3.jpg",
-      Author:"images/chefs/chef_05.jpeg"
+      recipename:"Chicken kebab",
+      recipeimage:"recipeimages/recepies/recipeimage_3.jpg",
+      Author:"recipeimages/chefs/chef_05.jpeg"
     },
     {
-      title:"Sushi",
-      image:"images/recepies/image_4.jpg",
-      Author:"images/chefs/chef_02.jpg"
+      recipename:"Sushi",
+      recipeimage:"recipeimages/recepies/recipeimage_4.jpg",
+      Author:"recipeimages/chefs/chef_02.jpg"
     },
     {
-      title:"Lamb Cheese Burger",
-      image:"images/recepies/image_5.jpg",
-      Author:"images/chefs/chef_06.jpeg"
+      recipename:"Lamb Cheese Burger",
+      recipeimage:"recipeimages/recepies/recipeimage_5.jpg",
+      Author:"recipeimages/chefs/chef_06.jpeg"
     },
     {
-      title:"CHicken Pilav",
-      image:"images/recepies/image_6.jpg",
-      Author:"images/chefs/chef_04.jpg"
+      recipename:"CHicken Pilav",
+      recipeimage:"recipeimages/recepies/recipeimage_6.jpg",
+      Author:"recipeimages/chefs/chef_04.jpg"
     },
     {
-      title:"Mushroom Prawns Curry",
-      image:"images/recepies/image_7.jpg",
-      Author:"images/chefs/chef_04.jpg"
+      recipename:"Mushroom Prawns Curry",
+      recipeimage:"recipeimages/recepies/recipeimage_7.jpg",
+      Author:"recipeimages/chefs/chef_04.jpg"
     },
     {
-      title:"Baked Rice Casserole ",
-      image:"images/recepies/image_8.jpg",
-      Author:"images/chefs/chef_06.jpeg"
+      recipename:"Baked Rice Casserole ",
+      recipeimage:"recipeimages/recepies/recipeimage_8.jpg",
+      Author:"recipeimages/chefs/chef_06.jpeg"
     },
     {
-      title:"Goodale Farms Duck Breast",
-      image:"images/recepies/image_9.jpg",
-      Author:"images/chefs/chef_06.jpeg"
+      recipename:"Goodale Farms Duck Breast",
+      recipeimage:"recipeimages/recepies/recipeimage_9.jpg",
+      Author:"recipeimages/chefs/chef_06.jpeg"
     },
     {
-      title:"Greek Stuffed Eggplants",
-      image:"images/recepies/image_17.jpg",
-      Author:"images/chefs/chef_01.jpg"
+      recipename:"Greek Stuffed Eggplants",
+      recipeimage:"recipeimages/recepies/recipeimage_17.jpg",
+      Author:"recipeimages/chefs/chef_01.jpg"
     },
     {
-      title:"Red & Green Chile Breakfast Burritos",
-      image:"images/recepies/image_21.png",
-      Author:"images/chefs/chef_02.jpg"
+      recipename:"Red & Green Chile Breakfast Burritos",
+      recipeimage:"recipeimages/recepies/recipeimage_21.png",
+      Author:"recipeimages/chefs/chef_02.jpg"
     },
     {
-      title:"Baked Lasagna",
-      image:"images/recepies/image_19.png",
-      Author:"images/chefs/chef_03.jpg"
+      recipename:"Baked Lasagna",
+      recipeimage:"recipeimages/recepies/recipeimage_19.png",
+      Author:"recipeimages/chefs/chef_03.jpg"
     },
     {
-      title:"Chicken Chettinad",
-      image:"images/recepies/image_10.jpg",
-      Author:"images/chefs/chef_05.jpeg"
+      recipename:"Chicken Chettinad",
+      recipeimage:"recipeimages/recepies/recipeimage_10.jpg",
+      Author:"recipeimages/chefs/chef_05.jpeg"
     },
     {
-      title:"Braised Lamb Chops",
-      image:"images/recepies/image_13.jpg",
-      Author:"images/chefs/chef_06.jpeg"
+      recipename:"Braised Lamb Chops",
+      recipeimage:"recipeimages/recepies/recipeimage_13.jpg",
+      Author:"recipeimages/chefs/chef_06.jpeg"
     }
    
   ].sort(()=> Math.random() - 0.5)
