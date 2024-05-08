@@ -9,7 +9,7 @@ function RecepieDetails({re}) {
   const navigate = useNavigate()
   return <>
     <div className="recipe-container">
-      <button className="btn1 " onClick={()=> navigate('/profile')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
+      <button className="btn1 " onClick={()=> navigate('/recepies')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
       <div className="recipe-image">
         <img src={recipe} alt="" />
         <div className="chef-image">

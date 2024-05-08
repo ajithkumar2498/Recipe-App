@@ -1,12 +1,31 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { Link,useLocation} from 'react-router-dom'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-function Sidebar({Links, close}) {
+import toast from 'react-hot-toast'
+function Sidebar({Links, close, loginLinks}) {
+  const auth = sessionStorage.getItem("token")
+  console.log(auth)
+  const [isLoggedIn, setIsLoggedIn]=useState(false)
+  useEffect(()=>{
+    console.log(auth)
+    if(auth){
+     setIsLoggedIn(true)
+    }
+    else{
+      setIsLoggedIn(false)
+      toast.success("logged out successful")
+    }
+    
+  })
+
   const location = useLocation()
   return <>
   <div className='Side-Bar' onClick={close}>
-   {
-    Links.map(link=>(
+   { isLoggedIn ?   loginLinks.map(link=>(
+      <Link to={link.path} className={location.pathname === link.path ? "sidebar-links active " : "sidebar-links"}   key={link.name}>
+        <FontAwesomeIcon icon={link.icon}/>
+        {link.name}</Link>))
+    : Links.map(link=>(
       <Link to={link.path} className={location.pathname === link.path ? "sidebar-links active " : "sidebar-links"}   key={link.name}>
         <FontAwesomeIcon icon={link.icon}/>
         {link.name}</Link>
