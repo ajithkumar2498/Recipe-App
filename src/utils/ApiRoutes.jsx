@@ -17,10 +17,10 @@ const ApiRoutes = {
         path:"/recipe/updaterecipe"
     },
     getrecipeById:{
-        path:"/recipe/:id/recipes"
+        path:"/recipe"
     },
     deleterecipe:{
-        path:"/recipe/deleterecipe/:id"
+        path:"/recipe/deleterecipe"
     },
     getallrecipe:{
         path:"/recipe/all"

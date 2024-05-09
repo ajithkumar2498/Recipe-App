@@ -146,9 +146,168 @@ img{
 .container{
     padding-inline: 18vw;
 }
+.your-recipe{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    grid-gap: 1.5em; 
+    .recipe-card{
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        .recipe-image{
+            width: 100%;
+            height: 10em;
+        }
+        .recipe-card-info{
+            padding:15px;
+        }
+        .custom-images{
+            z-index: -1;
+        }
+        .chef-img{
+            height:60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 1px solid var(--background-light);
+            box-shadow: 0 1px 3px var (--shadow-color);
+            margin-top: -50px;
+            z-index: 2;
+    
+        }
+        .recipe-title{
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-bottom: .5em;
+            color: var(--text-color);
+            margin-top: .25em;
+        }
+        .recipe-desc{
+            color: var(--text-light);
+            font-size: .9em;
+            letter-spacing: 1px;
+            margin-bottom: .75em;
+        }
+        .view-btn{
+            background-color: var(--primary-color);
+            font-size: 1em;
+            margin-left: 8em;
+            font-weight: bold;
+            color: #fff;
+            width: 8em;
+            border:none;
+            border-radius: 3px;
+            padding: 5px;
+            display: inline-block;
+            cursor: pointer;
+        }
+            .svg{
+                font-size: 1.3em;
+                padding: 8px;
+                cursor: pointer;
+                &:hover{
+                    color: var(--primary-color);
+                }
+
+            }
+    }
+
+}
 
 
+.updaterecipe{
+    margin-left: -10em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1em;
+    box-shadow: 3px 6px 12px var(--shadow-color);
+    background-image:url("/public/images/recepies/image_27.jpg") ;
+    width: 48vw;
+    border-radius: 5px;
+    height: 65em;
+    .error{
+        color: var(--primary-color);
+        font-size: 15px;
+    }
+    .title{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 1em;
+        color: var(--primary-color);
+        width:100%;
+        text-align: center;
+        border-radius: 5px ;
+        box-sizing: 0;
+        svg{
+            padding-left: 5px;
+            font-size: 25px;
+        }
+    }
+    form{
+        padding: 1em 1em 1.5em 1em;
+        display: grid;
+        grid-template-columns: repeat(autofill, minmax(170px, 1fr));
+        .fields{
+            display: grid;
+            grid-template-rows: repeat(autofill, minmax(170px, 1fr));;
+            label{
+                font-weight: 500; 
+                margin-top: .5em;
+                color: var(--primary-color);
+              }
+              input{
+                //   width: 100%;
+                  background-color: #ffffff31;
+                  height: 3em;
+                  padding-top: .5em;
+                  margin-top: .5em;
+                  border: 1px solid var(--primary-color);
+                  border-radius: 5px;
+                  color: #fff;
+              }
+              .file{
+                width:34.9em;
+                padding: 1em;
+                border: 1px solid var(--primary-color);
+                font-size: 120%;
+                text-transform: lowercase;
+                height: 5em;
+                color: #fff;
+              }
+              ::file-selector-button {
+                background-color:var(--primary-color);
+                color: white;
+                border: 1px solid var(--primary-color);
+                border-radius: 5px;
+                padding: 1rem 3rem;
+              }
+              textarea{
+                border: 1px solid var(--primary-color);
+                background-color: #ffffff49;
+                width: 50em;
+                margin-top: .5em;
+                  border-radius: 5px;
+                  color: #fff;
+              }
+          }
+     
+            .add{
+                margin-top: 2.5em;
+                padding-top: 5em;
+                width: 100%;
+                font-size: 25px;
+                padding: .5em 0 0.5em 0;
+                display: flex;
+                justify-content: center;
+                svg{
+                    padding-left: 5px;
+                    font-size: 25px;
+                }
+            }        
+    }
 
+}
 
 
 .addrecipe{

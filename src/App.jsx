@@ -14,6 +14,7 @@ import Profile from "./components/Profile"
 import Settings from "./pages/Settings"
 import RecepieDetails from "./components/RecepieDetails"
 import AddRecipe from "./components/AddRecipe"
+import UpdateRecipe from "./components/UpdateRecipe"
 import YourRecipe from "./components/YourRecipe"
 
 
@@ -35,6 +36,7 @@ function App() {
               <Route path='/recepies' element={<AdminGuard><Recepies /></AdminGuard>}/>
               <Route path='/profile' element={<Profile/>}/>
               <Route path='/addrecepies' element={<AddRecipe/>}/>
+              <Route path='/updaterecepies' element={<UpdateRecipe/>}/>
               <Route path='/yourrecipe' element={<YourRecipe/>}/>
               <Route path='*' element={<HomePage/>}/>
             </Routes>
