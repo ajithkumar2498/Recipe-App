@@ -5,7 +5,7 @@ import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from '../utils/ApiRoutes.jsx'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight,  faEnvelope, faLock, faSign, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight,  faEnvelope, faLock, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { Formik, Form } from 'formik'
 import * as yup from "yup"
 function LoginPage() {
@@ -14,7 +14,7 @@ function LoginPage() {
 	useEffect(()=>{
        sessionStorage.clear()
 	},[])
-	const handleLogin = async (values, helpers,e)=>{
+	const handleLogin = async (values, helpers)=>{
 		// console.log(values)
 		// console.log(helpers)
 	  try {
@@ -22,12 +22,13 @@ function LoginPage() {
 		console.log(formData)
 		// let data = Object.fromEntries(formData)
 		let res = await AxiosService.post(ApiRoutes.LOGIN.path, formData) 
-		console.log(res)
 			if(res.status === 200){
 				
 				sessionStorage.setItem('token', res.data.token)
 				sessionStorage.setItem('role', res.data.role)
 				sessionStorage.setItem('name', res.data.name)
+				sessionStorage.setItem('email', res.data.email)
+
 				sessionStorage.setItem('id', res.data.id)
 				toast.success(res.data.message)
 				if(res.data.role === "user"){
@@ -55,7 +56,7 @@ function LoginPage() {
 			<div className="container-login">
 				<Formik initialValues={InitialValues} validationSchema={ValidateSchema} onSubmit={handleLogin}>
 				 {(props)=>{
-					// console.log(props)
+	
 					return(
 						<Form className="login100-form validate-form">
 						<span className="header">

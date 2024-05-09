@@ -22,7 +22,6 @@ function SignUp() {
 		  let formData = {...values}
 		  let res = await AxiosService.post(ApiRoutes.SignUp.path, formData)
 			  if(res.status === 201){
-				  
 				  toast.success(res.data.message)
 				  navigate('/login')
 				 }
@@ -48,8 +47,6 @@ function SignUp() {
 			<div className="container-login">
                     <Formik initialValues={InitialValues} validationSchema={ValidateSchema} onSubmit={handleSignUp} >
 						{(props)=>{
-							
-                            console.log(props)
 							return(
 								<Form className="login100-form validate-form" >
 								<span className="header">
@@ -95,7 +92,7 @@ function SignUp() {
 								</div>
 								
 								<div className="container-login100-form-btn">
-									<button className="btn1">
+									<button className="btn1" type="button">
 										sign up
 										<FontAwesomeIcon icon={faSignIn}/>
 									</button>

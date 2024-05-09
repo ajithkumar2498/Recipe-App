@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useLogout from "../components/hooks/useLogout.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOut } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
+   const name= sessionStorage.getItem('name')
+   const email= sessionStorage.getItem('email')
+
   const logout= useLogout()
   return <>
    <div className="container">
@@ -14,8 +17,8 @@ function Profile() {
       </div>
       <hr />
        <div className="details">
-        <p className="name">Name : Ajithkumar T</p>
-        <p className="email">Email : ajithbhc24@gmail.com</p>
+        <p className="name">Name: {name}</p>
+        <p className="email">Email: {email}</p>
        </div>
        <button className="btn1 logout" onClick={()=> logout()}> logout <FontAwesomeIcon icon={faSignOut}/></button>
      </div>

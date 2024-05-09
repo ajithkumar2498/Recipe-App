@@ -14,7 +14,7 @@ const ApiRoutes = {
         path:"/recipe/addrecipe"
     },
     updaterecipe:{
-        path:"/recipe/updaterecipe/:id"
+        path:"/recipe/updaterecipe"
     },
     getrecipeById:{
         path:"/recipe/:id/recipes"
