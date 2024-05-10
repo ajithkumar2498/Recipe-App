@@ -42,7 +42,7 @@ function YourRecipe() {
     try {
       await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
       setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
-      alert('recipe deleted successfull')
+      toast.success('recipe deleted successfull')
     } catch (error) {
       toast.error(error.message || "internal server error")
     }

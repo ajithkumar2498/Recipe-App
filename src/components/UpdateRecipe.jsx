@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import AxiosService from "../utils/AxiosService";
 import ApiRoutes from "../utils/ApiRoutes";
 
-function UpdateRecipe() {
+function UpdateRecipe({recipe, id}) {
     const [authorimage, setAuthorImage] = useState();
     const [recipeimage, setRecipeImage] = useState();
   

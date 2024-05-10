@@ -98,7 +98,7 @@ function Navbar() {
         <div className="bar"> </div>
     </div>
    </div>
-   { showSideBar && <Sidebar close={closeSideBar} Links={Links} loginLinks={loginLinks}/> }
+   { showSideBar && <Sidebar close={closeSideBar} Links={Links} loginLinks={loginLinks} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/> }
    
   </>
 }

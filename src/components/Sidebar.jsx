@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link,useLocation} from 'react-router-dom'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import toast from 'react-hot-toast'
-function Sidebar({Links, close, loginLinks}) {
+function Sidebar({Links, close, loginLinks, isLoggedIn, setIsLoggedIn}) {
   const auth = sessionStorage.getItem("token")
   
-  const [isLoggedIn, setIsLoggedIn]=useState(false)
+  
   useEffect(()=>{
     
     if(auth){

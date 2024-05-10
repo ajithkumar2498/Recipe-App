@@ -33,11 +33,11 @@ function App() {
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/signup' element={<SignUp/>}/>
               <Route path='/recipecard' element={<RecepieDetails/>}/>
-              <Route path='/recepies' element={<AdminGuard><Recepies /></AdminGuard>}/>
+              <Route path='/recepies' element={<Recepies />}/>
               <Route path='/profile' element={<Profile/>}/>
-              <Route path='/addrecepies' element={<AddRecipe/>}/>
-              <Route path='/updaterecepies' element={<UpdateRecipe/>}/>
-              <Route path='/yourrecipe' element={<YourRecipe/>}/>
+              <Route path='/addrecepies' element={<UserGuard><AddRecipe/></UserGuard>}/>
+              <Route path='/updaterecepies' element={<UserGuard><UpdateRecipe/></UserGuard>}/>
+              <Route path='/yourrecipe' element={<YourRecipe><YourRecipe/></YourRecipe>}/>
               <Route path='*' element={<HomePage/>}/>
             </Routes>
       </div>
