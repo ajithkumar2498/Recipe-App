@@ -37,7 +37,7 @@ function RecipeSteps() {
       const navigate = useNavigate()
   return <>
    <div className="recipe-container">
-      <button className="btn1 " onClick={()=> auth ? navigate('/yourrecipe') : navigate('/recipies')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
+      <button className="btn1 " onClick={()=> auth ? navigate('/yourrecipe') : navigate('/recepies')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
       {loader ?  <div className="loader" style={{textAlign:'center'}}> 
       <ClipLoader loading={loader} size={80} aria-label="Loading Spinner" height={80} data-testid="loader" />
       </div> : recipe ?    <>
