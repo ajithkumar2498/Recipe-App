@@ -83,7 +83,7 @@ function Navbar() {
     }
   return <>
    <div className="nav-bar container">
-     <Link to='/home' className='logo'>R<span>ec</span>epiesZone</Link>
+     <Link to='/home' className='logo'>R<span>ec</span>epies Zone</Link>
      <div className="nav-links">
      {isLoggedIn? loginLinks.map((link) =>(
           <Link className={location.pathname === link.path ? "active" : " "} to={link.path} key={link.name}>{link.name}</Link>

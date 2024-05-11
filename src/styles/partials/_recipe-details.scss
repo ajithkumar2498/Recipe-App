@@ -59,6 +59,10 @@
                 margin-top: 2em;
                 list-style-type: none;
                 color: var(--text-color);
+                .fa{
+                    margin-right: 10px;
+                    color: var(--primary-color);
+                }
           }
     }
     .Instructions{
@@ -72,10 +76,7 @@
         .instruction{
                 list-style-type: none;
                 margin-top: 2em;
-                .fa{
-                    margin-right: 10px;
-                    color: var(--primary-color);
-                }
+               
           }
     }
    

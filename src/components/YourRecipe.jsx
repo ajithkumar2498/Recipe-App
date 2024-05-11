@@ -1,6 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import CustomImages from './CustomImages'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from "../utils/ApiRoutes.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -25,7 +24,7 @@ function YourRecipe() {
       if (userId) {
         const fetchRecipes = async () => {
           try {
-            const response = await AxiosService.get(`${ApiRoutes.getrecipeById.path}/${userId}/recipes`);
+            const response = await AxiosService.get(`${ApiRoutes.getrecipeByUserId.path}/${userId}/recipes`);
             console.log(response.data.recipes)
               setRecipes(response.data.recipes);
           } catch (error) {
@@ -40,13 +39,19 @@ function YourRecipe() {
     // }
    const handleDeleteRecipe = async (recipeId)=>{
     try {
-      await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
-      setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
-      toast.success('recipe deleted successfull')
+      let res = await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
+      if(res.status=== 200){
+        setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
+        toast.success('recipe deleted successfull')
+      }
+      else{
+        toast.error("error in deletion")
+      }
     } catch (error) {
       toast.error(error.message || "internal server error")
     }
    }
+   
    
   return <>
      <div className="your-recipe">
@@ -58,9 +63,9 @@ function YourRecipe() {
                <p className="recipe-title">{recipe.recipename}</p>
                <p className="recipe-desc">
                 {recipe.recipedesc} </p>
-                <FontAwesomeIcon icon={faEdit} className='svg' onClick={(_id)=><UpdateRecipe recipe={recipe} key={recipe._id}/>}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faEdit} className='svg' onClick={()=> navigate(`/updaterecepies/${recipe._id}`)}></FontAwesomeIcon>
                 <FontAwesomeIcon icon={faTrash} className='svg' onClick={()=>handleDeleteRecipe(recipe._id)} ></FontAwesomeIcon>
-               <button  className='view-btn' onClick={()=> navigate('/recipecard')}> View Recipe </button>       
+               <button  className='view-btn' onClick={()=> navigate(`/recipedetails/${recipe._id}`)}> View Recipe </button>       
              </div>
            </div>
       ) )}

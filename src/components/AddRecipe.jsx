@@ -6,11 +6,12 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import AxiosService from "../utils/AxiosService";
 import ApiRoutes from "../utils/ApiRoutes";
+import { useNavigate } from "react-router-dom";
 
 function AddRecipe() {
   const [authorimage, setAuthorImage] = useState();
   const [recipeimage, setRecipeImage] = useState();
-
+  const nav= useNavigate()
   const handleAddRecipe = async (values, {resetForm}) => {
     let id = sessionStorage.getItem("id");
     try {
@@ -25,16 +26,13 @@ function AddRecipe() {
       formData.append("procedure", values.procedure);
       console.log(recipeimage,authorimage)
       resetForm()
-      const res = await AxiosService.post(`${ApiRoutes.addrecipe.path}/${id}`,formData,{ headers: { "Content-Type": "multipart/form-data" } } );
-      console.log(res.data);
-      
+      const res = await AxiosService.post(`${ApiRoutes.addrecipe.path}/${id}`,formData,{ headers: { "Content-Type": "multipart/form-data" } } )
       // setRecipeImage('')
       // setRecipeImage('')
-      if (res.status === 200) {  
+      if (res.status === 201) {  
         console.log("Recipe added successfully:", res.data);
         toast.success(res.data.message || "recipe added successfully");
-        Navigate('/yourrecipe')
-        
+        nav('/yourrecipe')
       } else {
         // Handle unexpected response status
         throw new Error("Unexpected response from server");

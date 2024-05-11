@@ -2,46 +2,63 @@ import { faBowlRice, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import AxiosService from "../utils/AxiosService";
 import ApiRoutes from "../utils/ApiRoutes";
 
-function UpdateRecipe({recipe, id}) {
+function UpdateRecipe() {
+    
     const [authorimage, setAuthorImage] = useState();
     const [recipeimage, setRecipeImage] = useState();
-  
-    const handleUpdateRecipe = async (values, {resetForm}) => {
-      let id = sessionStorage.getItem("id");
-      try {
-        const formData = new FormData();
-        // Append form data
-        formData.append("recipename", values.recipename);
-        formData.append("authorname", values.authorname);
-        formData.append("recipedesc", values.recipedesc)
-        formData.append("authorimage", authorimage);
-        formData.append("ingredients", values.ingredients);
-        formData.append("recipeimage", recipeimage);
-        formData.append("procedure", values.procedure);
-        console.log(recipeimage,authorimage)
-        resetForm()
-        const res = await AxiosService.post(`${ApiRoutes.addrecipe.path}/${id}`,formData,{ headers: { "Content-Type": "multipart/form-data" } } );
-        console.log(res.data);
-        
-        // setRecipeImage('')
-        // setRecipeImage('')
-        if (res.status === 200) {  
-          console.log("Recipe added successfully:", res.data);
-          toast.success(res.data.message || "recipe added successfully");
-          
-        } else {
-          // Handle unexpected response status
-          throw new Error("Unexpected response from server");
+    const [recipename,setRecipeName]=useState('')
+    const [recipedesc, setRecipeDesc] = useState('')
+    const [authorname, setAuthorName] = useState('')
+    const [ingredients,setIngredients]= useState('')
+    const [procedure, setProcedure] = useState('')
+    const [recipe, setRecipe]=useState(null)
+
+    const { id } = useParams()
+    console.log(id)
+    useEffect(() => {
+      const fetchRecipe = async () => {
+        try {
+          const response = await AxiosService.get(`${ApiRoutes.getRecipeById.path}/${id}/rp`)
+          console.log(response)
+          setRecipe(response.data);
+          setRecipeName(response.data.recipe.recipename)
+          setRecipeDesc(response.data.recipe.recipedesc)
+          setAuthorName(response.data.recipe.authorname)
+          setIngredients(response.data.recipe.ingredients)
+          setProcedure(response.data.recipe.procedure)
+        } catch (error) {
+          console.error('Error fetching recipe:', error);
         }
-      } catch (error) {
+      };
+  
+      fetchRecipe();
+    }, [id]); 
+
+   const handleEditRecipe = async (values, {resetForm})=>{
+    console.log(id)
+      try{
+        const formData = new FormData()
+        formData.append("recipename", values.recipename);
+      formData.append("authorname", values.authorname);
+      formData.append("recipedesc", values.recipedesc)
+      formData.append("authorimage", authorimage);
+      formData.append("ingredients", values.ingredients);
+      formData.append("recipeimage", recipeimage);
+      formData.append("procedure", values.procedure);
+      console.log(recipeimage,authorimage)
+      resetForm()
+        const response = await AxiosService.put(`${ApiRoutes.updaterecipe.path}/${id}`, formData, { headers: { "Content-Type": "multipart/form-data" } })
+        console.log(response.data)
+      }catch(error){
         toast.error(error.message || "server error");
       }
-    };
+   }
     const InitialValues = {
       recipename: "",
       recipedesc:"",
@@ -60,7 +77,7 @@ function UpdateRecipe({recipe, id}) {
       // recipeimage:yup.string().required(),
       procedure: yup.string().required(),
     });
-    console.log();
+  
     return (
       <>
         <div className="container">
@@ -71,7 +88,7 @@ function UpdateRecipe({recipe, id}) {
             <Formik
               initialValues={InitialValues}
               validationSchema={ValidateSchema}
-              onSubmit={handleUpdateRecipe}
+              onSubmit={handleEditRecipe}
             >
               {(props) => {
                 return (
@@ -83,7 +100,7 @@ function UpdateRecipe({recipe, id}) {
                         name="recipename"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.recipename}
+                        value={recipename}
                       />
                       {props.errors.recipename && props.touched.recipename && (
                         <p className="error">{props.errors.recipename}</p>
@@ -96,7 +113,7 @@ function UpdateRecipe({recipe, id}) {
                         name="recipedesc"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.recipedesc}
+                        value={recipedesc}
                       />
                       {props.errors.recipedesc && props.touched.recipedesc && (
                         <p className="error">{props.errors.recipedesc}</p>
@@ -109,7 +126,7 @@ function UpdateRecipe({recipe, id}) {
                         name="authorname"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.authorname}
+                        value={authorname}
                       />
                       {props.errors.authorname && props.touched.authorname && (
                         <p className="error">{props.errors.authorname}</p>
@@ -139,7 +156,7 @@ function UpdateRecipe({recipe, id}) {
                         name="ingredients"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.ingredients}
+                        value={ingredients}
                       />
                       {props.errors.ingredients && props.touched.ingredients && (
                         <p className="error">{props.errors.ingredients}</p>
@@ -170,7 +187,7 @@ function UpdateRecipe({recipe, id}) {
                         rows="10"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={props.values.procedure}
+                        value={procedure}
                       ></textarea>
                       {props.errors.procedure && props.touched.procedure && (
                         <p className="error">{props.errors.procedure}</p>
