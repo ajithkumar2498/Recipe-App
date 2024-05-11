@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom"
-import skillImage from "../../public/images/recepies/login.jpg"
+
 
 function ImproveSkill() {
+    const auth = sessionStorage.getItem('token')
    const navigate =useNavigate()
     const list = [
         "Learn new recepies",
@@ -21,7 +22,7 @@ function ImproveSkill() {
                 {list.map((item,index)=>( 
                  <p className='skill-items' key={index}> {item}</p>
                  ))}
-                <button className="btn1" onClick={()=> navigate('/signup')}>Add Your Recipe</button>
+                <button className="btn1" onClick={()=> auth ? navigate('/yourrecipe'):navigate('/signup')}>Add Your Recipe</button>
             </div>
 
     

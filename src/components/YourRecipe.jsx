@@ -1,16 +1,18 @@
 import React, { useEffect,useState } from 'react'
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import AxiosService from "../utils/AxiosService.jsx"
 import ApiRoutes from "../utils/ApiRoutes.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import toast from 'react-hot-toast'
-import UpdateRecipe from './UpdateRecipe.jsx'
+import { ClipLoader } from 'react-spinners'
 
 function YourRecipe() {
   const navigate = useNavigate()
    const [recipes, setRecipes]=useState([])
    const [userId, setUserId] = useState(null)
+   const [isLoading, setIsLoading] = useState(true)
+   const [color, setColor]=('FF0080')
    
     useEffect(() => {
       // Retrieve user ID from session storage
@@ -20,24 +22,27 @@ function YourRecipe() {
         setUserId(storedUserId);
       }
     }, []);
-    useEffect(()=>{
+    useEffect(() => {
       if (userId) {
-        const fetchRecipes = async () => {
-          try {
-            const response = await AxiosService.get(`${ApiRoutes.getrecipeByUserId.path}/${userId}/recipes`);
-            console.log(response.data.recipes)
-              setRecipes(response.data.recipes);
-          } catch (error) {
-            console.error('Error fetching recipes:', error);
-          }
-        };
-        fetchRecipes();
-     }
-     },[userId])
-    // const openEditRecipe = ()=>{
-    //   navigate('/updaterecepies')
-    // }
+        setTimeout(() => { 
+          const fetchRecipes = async () => {
+            try {
+              const response = await AxiosService.get(`${ApiRoutes.getrecipeByUserId.path}/${userId}/recipes`);
+              if (response.status === 200) {
+                setIsLoading(false);
+                setRecipes(response.data.recipes);
+              }
+            } catch (error) {
+              console.error('Error fetching recipes:', error);
+            }
+          };
+          fetchRecipes();
+        }, 1000);
+      }
+    }, [userId]);
+ 
    const handleDeleteRecipe = async (recipeId)=>{
+    
     try {
       let res = await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
       if(res.status=== 200){
@@ -55,7 +60,11 @@ function YourRecipe() {
    
   return <>
      <div className="your-recipe">
-      {recipes.map(recipe => (
+      {isLoading ? 
+      <div className="loader" style={{textAlign:'center'}}> 
+      <ClipLoader loading={isLoading} color = {color} size={80} aria-label="Loading Spinner" height={80} data-testid="loader" />
+      </div>  :
+      recipes.map(recipe => (
              <div className="recipe-card" key={recipe._id}>
              <img src={recipe.recipeimage.url} className="recipe-image" alt="recipe" />
              <div className="recipe-card-info">

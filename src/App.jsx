@@ -7,8 +7,6 @@ import HomePage from "./pages/HomePage"
 import Recepies from "./pages/Recepies"
 import LoginPage from "./components/LoginPage"
 import SignUp from "./components/SignUp"
-import AdminGuard from "./utils/AdminGuard"
-import Dashboard from "./components/Dashboard"
 import UserGuard from "./utils/UserGuard"
 import Profile from "./components/Profile"
 import Settings from "./pages/Settings"
@@ -16,6 +14,7 @@ import RecepieDetails from "./components/RecepieDetails"
 import AddRecipe from "./components/AddRecipe"
 import UpdateRecipe from "./components/UpdateRecipe"
 import YourRecipe from "./components/YourRecipe"
+import RecipeSteps from "./components/RecipeSteps"
 
 
 function App() {
@@ -32,6 +31,7 @@ function App() {
               <Route path='/settings' element={<Settings/>}/>
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/signup' element={<SignUp/>}/>
+              <Route path='/recipesteps/:id' element={<RecipeSteps/>}/>
               <Route path='/recipedetails/:id' element={<RecepieDetails/>}/>
               <Route path='/recepies' element={<Recepies />}/>
               <Route path='/profile' element={<UserGuard> <Profile/> </UserGuard>}/>
