@@ -10,20 +10,25 @@ import { ClipLoader } from "react-spinners";
 function RecepieDetails() {
   const auth = sessionStorage.getItem("token")
   const [recipe, setRecipe]=useState(null)
+  const [ingredients, setIngredients] = useState('')
+  const [procedure, setProcedure]=useState([])
   const [loader, setLoader]=useState(true)
   const {id} = useParams()
   useEffect(()=>{
     setTimeout(()=>{
       const fetchRecipe = async () => {
         try {
-          const response = await AxiosService.get(`${ApiRoutes.getRecipeById.path}/${id}/rp`)
-          console.log(response)
-          if(response.status===200){
-            setRecipe(response.data.recipe);
+          const res = await AxiosService.get(`${ApiRoutes.getRecipeById.path}/${id}/rp`)
+          // console.log(res)
+          if(res.status===200){
+            setRecipe(res.data.recipe);
             setLoader(false)
-            const ingredients = response.data.recipe.ingredients
-            console.log(ingredients)
-            toast.success(`${response.data.recipe.recipename} recipe is here`, {icon:"🍛"})
+            // procedure =  res.data.recipe.procedure
+            const ing = res.data.recipe.ingredients[0].split(',')
+            setIngredients(ing)
+            console.log(ing)
+            // setProcedure(procedure.split('.'))
+            toast.success(`${res.data.recipe.recipename} recipe is here`, {icon:"🍛"})
           }else{
             throw new Error("Unexpected response from server");
           }
@@ -31,11 +36,9 @@ function RecepieDetails() {
           console.error('Error fetching recipe:', error);
         }
       };
-      
     fetchRecipe();
     },5000)
-   
-
+   console.log(ingredients)
   },[id])
   const navigate = useNavigate()
   return <>
@@ -56,16 +59,10 @@ function RecepieDetails() {
        <div className="Procedures">
         <div className="ingredients">
           <span>Ingredients</span>
-          <ul className="ingredient">
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/> {recipe.ingredients}</li>
-            {/* <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>vhiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li> */}
-          </ul>
+          {ingredients.map((ingredient, index) =>{ return (<ul className="ingredient" key={index} >
+                <li> <FontAwesomeIcon className="fa"icon={faSpoon}/> {ingredient}{console.log(ingredient)}</li>
+              </ul>)
+            })}
         </div>
         <div className="Instructions">
         <span>Instructions</span>
@@ -82,7 +79,7 @@ function RecepieDetails() {
            </ul>
         </div>
        </div>
-      </> : <></>}
+      </> : <><div><p>Recipe not found</p></div></>}
    
      
     </div>

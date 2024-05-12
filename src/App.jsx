@@ -32,12 +32,12 @@ function App() {
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/signup' element={<SignUp/>}/>
               <Route path='/recipesteps/:id' element={<RecipeSteps/>}/>
-              <Route path='/recipedetails/:id' element={<RecepieDetails/>}/>
+              <Route path='/recipedetails/:id' element={<UserGuard><RecepieDetails/> </UserGuard>}/>
               <Route path='/recepies' element={<Recepies />}/>
               <Route path='/profile' element={<UserGuard> <Profile/> </UserGuard>}/>
               <Route path='/addrecepies' element={<UserGuard><AddRecipe/></UserGuard>}/>
               <Route path='/updaterecepies/:id' element={<UserGuard><UpdateRecipe/> </UserGuard>}/>
-              <Route path='/yourrecipe' element={<UserGuard><YourRecipe/></UserGuard>}/>
+              <Route path='/yourrecipes' element={<UserGuard><YourRecipe/></UserGuard>}/>
               <Route path='*' element={<HomePage/>}/>
             </Routes>
       </div>

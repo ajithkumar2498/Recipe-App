@@ -11,6 +11,7 @@ import { ClipLoader } from 'react-spinners';
 function RecipeSteps() {
     const [recipe, setRecipe]=useState(null)
     const auth = sessionStorage.getItem("token")
+    const [ingredients, setIngredients] = useState('')
     const [loader,setLoader]=useState(true)
     const {id} = useParams()
     useEffect(()=>{
@@ -21,7 +22,8 @@ function RecipeSteps() {
               if(response.status===200){
                 setLoader(false)
                 setRecipe(response.data.recipe);
-                const ingredients = response.data.recipe.ingredients
+                const ing = response.data.recipe.ingredients[0].split(',')
+                setIngredients(ing)
                 toast.success(`${response.data.recipe.recipename} recipe is here`, {icon:"🍛"})
               }else{
                 throw new Error("Unexpected response from server");
@@ -30,7 +32,6 @@ function RecipeSteps() {
               console.error('Error fetching recipe:', error);
             }
           };
-          
         fetchRecipe();
         },5000)
       },[id])
@@ -53,16 +54,10 @@ function RecipeSteps() {
        <div className="Procedures">
         <div className="ingredients">
           <span>Ingredients</span>
-          <ul className="ingredient">
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/> {recipe.ingredients}</li>
-            {/* <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>vhiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li>
-            <li> <FontAwesomeIcon className="fa"icon={faSpoon}/>hiii</li> */}
-          </ul>
+          {ingredients.map((ingredient, index) =>{ return (<ul className="ingredient" key={index} >
+                <li> <FontAwesomeIcon className="fa"icon={faSpoon}/> {ingredient}{console.log(ingredient)}</li>
+              </ul>)
+            })}
         </div>
         <div className="Instructions">
         <span>Instructions</span>
@@ -79,7 +74,7 @@ function RecipeSteps() {
            </ul>
         </div>
          <div className="createdby">
-            <p>Created By</p>
+            <p>Recipe By</p>
          <p className="recipeby">- {recipe.authorname}</p>
          </div>
          

@@ -25,7 +25,7 @@ function Navbar() {
         icon:faBowlFood
       },
       {
-        name:"ADD RECIPE",
+        name:"ADD YOUR RECIPE",
         path:"/signup",
         icon:faPlusSquare
       },
@@ -52,8 +52,8 @@ function Navbar() {
         icon:faPlusSquare
       },
       {
-        name:"YOUR RECIPE",
-        path:"/yourrecipe",
+        name:"YOUR RECIPES",
+        path:"/yourrecipes",
         icon:faBowlRice
       },
       {

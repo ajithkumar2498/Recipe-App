@@ -31,6 +31,7 @@ function YourRecipe() {
               if (response.status === 200) {
                 setIsLoading(false);
                 setRecipes(response.data.recipes);
+                console.log(response.data.recipes)
               }
             } catch (error) {
               console.error('Error fetching recipes:', error);
