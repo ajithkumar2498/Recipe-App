@@ -20,6 +20,7 @@ function SignUp() {
 	
 		try {
 		  let formData = {...values}
+		  console.log(formData)
 		  let res = await AxiosService.post(ApiRoutes.SignUp.path, formData)
 			  if(res.status === 201){
 				  toast.success(res.data.message)
@@ -92,7 +93,7 @@ function SignUp() {
 								</div>
 								
 								<div className="container-login100-form-btn">
-									<button className="btn1" type="button">
+									<button className="btn1" type="submit">
 										sign up
 										<FontAwesomeIcon icon={faSignIn}/>
 									</button>

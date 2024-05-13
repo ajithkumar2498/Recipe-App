@@ -19,16 +19,13 @@ function LoginPage() {
 		// console.log(helpers)
 	  try {
 		let formData = {...values}
-		console.log(formData)
 		// let data = Object.fromEntries(formData)
 		let res = await AxiosService.post(ApiRoutes.LOGIN.path, formData) 
 			if(res.status === 200){
-				
 				sessionStorage.setItem('token', res.data.token)
 				sessionStorage.setItem('role', res.data.role)
 				sessionStorage.setItem('name', res.data.name)
 				sessionStorage.setItem('email', res.data.email)
-
 				sessionStorage.setItem('id', res.data.id)
 				toast.success(res.data.message)
 				if(res.data.role === "user"){
