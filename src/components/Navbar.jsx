@@ -92,13 +92,13 @@ function Navbar() {
           <Link className={location.pathname === link.path ? "active" : " "} to={link.path} key={link.name}>{link.name}</Link>
        ))} 
      </div>
-    <div onClick={()=> setShowSideBar(true)} className={showSideBar ? "sidebar-Icon active" : "sidebar-Icon"}>
+    <div onClick={()=> {setShowSideBar(true); auth ? setIsLoggedIn(true) :setIsLoggedIn(false)} } className={showSideBar ? "sidebar-Icon active" : "sidebar-Icon"}>
         <div className="bar"> </div>
         <div className="bar"> </div>
         <div className="bar"> </div>
     </div>
    </div>
-   { showSideBar && <Sidebar close={closeSideBar} Links={Links} loginLinks={loginLinks} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/> }
+   { showSideBar && <Sidebar close={closeSideBar} Links={Links} authh = {auth} loginLinks={loginLinks} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/> }
    
   </>
 }

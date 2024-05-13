@@ -7,9 +7,10 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import AxiosService from "../utils/AxiosService";
 import ApiRoutes from "../utils/ApiRoutes";
+import { useNavigate } from "react-router-dom";
 
 function UpdateRecipe() {
-    
+    const nav =useNavigate()
     const [authorimage, setAuthorImage] = useState();
     const [recipeimage, setRecipeImage] = useState();
     const [recipename,setRecipeName]=useState('')
@@ -54,7 +55,11 @@ function UpdateRecipe() {
       console.log(recipeimage,authorimage)
       resetForm()
         const response = await AxiosService.put(`${ApiRoutes.updaterecipe.path}/${id}`, formData, { headers: { "Content-Type": "multipart/form-data" } })
+       if(response.status===200){
         console.log(response.data)
+        toast.success(response.data.message || "Recipe Updated Successfully")
+        nav('/yourrecipes')
+       } 
       }catch(error){
         toast.error(error.message || "server error");
       }
@@ -100,7 +105,7 @@ function UpdateRecipe() {
                         name="recipename"
                         onChange={props.handleChange}
                         onBlur={props.handleBlur}
-                        value={recipename}
+                        value={recipename }
                       />
                       {props.errors.recipename && props.touched.recipename && (
                         <p className="error">{props.errors.recipename}</p>

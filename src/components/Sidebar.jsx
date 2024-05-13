@@ -2,21 +2,21 @@ import { useEffect, useState } from 'react'
 import { Link,useLocation} from 'react-router-dom'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import toast from 'react-hot-toast'
-function Sidebar({Links, close, loginLinks, isLoggedIn, setIsLoggedIn}) {
-  const auth = sessionStorage.getItem("token")
+function Sidebar({Links, close, loginLinks, isLoggedIn}) {
   
   
-  useEffect(()=>{
+  
+  // useEffect(()=>{
     
-    if(auth){
-     setIsLoggedIn(true)
-    }
-    else{
-      setIsLoggedIn(false)
-      toast.success("logged out successful")
-    }
+  //   if(auth){
+  //    setIsLoggedIn(true)
+  //   }
+  //   else{
+  //     setIsLoggedIn(false)
+  //     toast.success("logged out successful")
+  //   }
     
-  },[auth])
+  // })
 
   const location = useLocation()
   return <>

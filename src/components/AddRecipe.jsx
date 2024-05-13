@@ -9,6 +9,7 @@ import ApiRoutes from "../utils/ApiRoutes";
 import { useNavigate } from "react-router-dom";
 
 function AddRecipe() {
+ 
   const [authorimage, setAuthorImage] = useState();
   const [recipeimage, setRecipeImage] = useState();
   const nav= useNavigate()
@@ -32,7 +33,7 @@ function AddRecipe() {
       if (res.status === 201) {  
         console.log("Recipe added successfully:", res.data);
         toast.success(res.data.message || "recipe added successfully");
-        nav('/yourrecipe')
+        nav('/yourrecipes')
       } else {
         // Handle unexpected response status
         throw new Error("Unexpected response from server");
@@ -60,6 +61,7 @@ function AddRecipe() {
     procedure: yup.string().required(),
   });
   console.log();
+  
   return (
     <>
       <div className="container">
