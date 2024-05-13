@@ -35,15 +35,15 @@ function YourRecipe() {
               }
             } catch (error) {
               console.error('Error fetching recipes:', error);
+              setIsLoading(false);
+              navigate('/add')
             }
           };
           fetchRecipes();
         }, 1000);
       }
     }, [userId]);
- 
    const handleDeleteRecipe = async (recipeId)=>{
-    
     try {
       let res = await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
       if(res.status=== 200){

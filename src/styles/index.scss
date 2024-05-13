@@ -213,6 +213,29 @@ img{
 
 }
 
+.error-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    p{
+        margin-top: 3em;
+        text-align: center;
+        font-weight: 600;
+        font-size: 2em;
+    }
+    .btn1{
+        margin-top: 5em;
+        margin-bottom: 8em;
+     width:25em;
+     text-align: center;
+   
+     svg{
+        font-weight: 600;
+     }
+    }
+}
 
 .updaterecipe{
     margin-left: -10em;

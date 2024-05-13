@@ -15,6 +15,7 @@ import AddRecipe from "./components/AddRecipe"
 import UpdateRecipe from "./components/UpdateRecipe"
 import YourRecipe from "./components/YourRecipe"
 import RecipeSteps from "./components/RecipeSteps"
+import ErrorResponsePage from "./components/ErrorResponsePage"
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
               <Route path='/recepies' element={<Recepies />}/>
               <Route path='/profile' element={<UserGuard> <Profile/> </UserGuard>}/>
               <Route path='/addrecepies' element={<UserGuard><AddRecipe/></UserGuard>}/>
+              <Route path='/add' element={<UserGuard><ErrorResponsePage/></UserGuard>}/>
               <Route path='/updaterecepies/:id' element={<UserGuard><UpdateRecipe/> </UserGuard>}/>
               <Route path='/yourrecipes' element={<UserGuard><YourRecipe/></UserGuard>}/>
               <Route path='*' element={<HomePage/>}/>
