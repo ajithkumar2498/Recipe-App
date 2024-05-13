@@ -62,7 +62,7 @@ function YourRecipe() {
   return <>
      <div className="your-recipe">
       {isLoading ? 
-      <div className="loader" style={{textAlign:'center'}}> 
+      <div className="loader" style={{textAlign:'center', marginBottom:'10em',marginTop:'10em'}}> 
       <ClipLoader loading={isLoading} color = {color} size={80} aria-label="Loading Spinner" height={80} data-testid="loader" />
       </div>  :
       recipes.map(recipe => (

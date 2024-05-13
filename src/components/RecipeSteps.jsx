@@ -39,7 +39,7 @@ function RecipeSteps() {
   return <>
    <div className="recipe-container">
       <button className="btn1 " onClick={()=> auth ? navigate('/recepies') : navigate('/yourrecipes')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
-      {loader ?  <div className="loader" style={{textAlign:'center'}}> 
+      {loader ?  <div className="loader" style={{textAlign:'center',margin:'10em'}}> 
       <ClipLoader loading={loader} size={80} aria-label="Loading Spinner" height={80} data-testid="loader" />
       </div> : recipe ?    <>
        <div className="recipe-image">
