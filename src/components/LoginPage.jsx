@@ -80,7 +80,7 @@ function LoginPage() {
 								
 						</div>
 						<div className="button">
-							<button className="btn1">
+							<button className="btn1" type='submit'>
 							Login
 							<FontAwesomeIcon icon={faSignInAlt}/>
 							</button>

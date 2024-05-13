@@ -48,7 +48,9 @@ function YourRecipe() {
       let res = await AxiosService.delete(`${ApiRoutes.deleterecipe.path}/${recipeId}`)
       if(res.status=== 200){
         setRecipes(recipes.filter(recipe => recipe._id !== recipeId))
+        navigate('/add')
         toast.success('recipe deleted successfull')
+       
       }
       else{
         toast.error("error in deletion")
