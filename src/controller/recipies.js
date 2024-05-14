@@ -79,7 +79,7 @@ const updateRecipe = async (req, res)=>{
     }
     // Update recipe image if provided
     if (req.body.recipeimage) {
-      const recipeUpload = await cloudinary.uploader.upload(req.body.recipeimage, { folder: 'recipes' });
+      const recipeUpload = await cloudinary.uploader.upload(req.files.recipeimage[0], { folder: 'recipes' });
       recipe.recipeimage = {
         public_id: recipeUpload.public_id,
         url: recipeUpload.secure_url
@@ -87,7 +87,7 @@ const updateRecipe = async (req, res)=>{
     }
     // Update author image if provided
     if (req.body.authorimage) {
-      const authorUpload = await cloudinary.uploader.upload(req.body.authorimage, { folder: 'authors' });
+      const authorUpload = await cloudinary.uploader.upload(req.files.authorimage[0], { folder: 'authors' });
       recipe.authorimage = {
         public_id: authorUpload.public_id,
         url: authorUpload.secure_url
