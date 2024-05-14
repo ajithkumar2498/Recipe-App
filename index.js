@@ -14,5 +14,9 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 app.use(bodyParser.json())
 app.use(AppRoutes)
-
+app.get('/home',(req,res)=>{
+    res.status(200).send({
+        message:`server running in ${process.env.PORT}`
+    })
+})
 app.listen(process.env.PORT,()=>console.log("Server Listening in "+process.env.PORT))
