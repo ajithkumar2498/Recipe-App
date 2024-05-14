@@ -38,10 +38,10 @@ function RecipeSteps() {
       const navigate = useNavigate()
   return <>
    <div className="recipe-container">
-      <button className="btn1 " onClick={()=> auth ? navigate('/recepies') : navigate('/yourrecipes')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
       {loader ?  <div className="loader" style={{textAlign:'center',margin:'10em'}}> 
       <ClipLoader loading={loader} size={80} aria-label="Loading Spinner" height={80} data-testid="loader" />
       </div> : recipe ?    <>
+      <button className="btn1 " onClick={()=> auth ? navigate('/recepies') : navigate('/yourrecipes')}><FontAwesomeIcon icon={faArrowLeft} className="back-icon"></FontAwesomeIcon></button>
        <div className="recipe-image">
         <img src={recipe.recipeimage.url} alt="" />
         <div className="chef-image">
@@ -63,14 +63,6 @@ function RecipeSteps() {
         <span>Instructions</span>
            <ul className="instruction">
             <li>{recipe.procedure}</li>
-            {/* <li>hii</li>
-            <li>hii</li>
-            <li>hii</li>
-            <li>hii</li>
-            <li>hii</li>
-            <li>hii</li>
-            <li>hii</li>
-            <li>hii</li> */}
            </ul>
         </div>
          <div className="createdby">
