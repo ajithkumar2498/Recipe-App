@@ -9,24 +9,4 @@ cloudinary.v2.config({
     api_secret:process.env.API_SECRET
 })
 
-// export const uploads = (image,folder)=>{
-//     return new Promise (resolve=>{
-//      cloudinary.uploader.upload(image,(result)=>{
-//           resolve({
-//             recipename,
-//             authorname,
-//             ingredients,
-//             procedure,
-//             recipeimage:result.url,
-//             authorimage:result.url,
-//             id:req.user._id,
-
-//           })
-//       },{
-//         resource_type:"auto",
-//         folder:folder
-//       })
-    
-//     })
-// }
 export default cloudinary
