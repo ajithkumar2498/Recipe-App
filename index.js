@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 app.use(bodyParser.json())
 app.use(AppRoutes)
-app.get('/home',(req,res)=>{
+app.get('/',(req,res)=>{
     res.status(200).send({
         message:`server running in ${process.env.PORT}`
     })
