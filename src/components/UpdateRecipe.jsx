@@ -18,21 +18,27 @@ function UpdateRecipe() {
     const [authorname, setAuthorName] = useState('')
     const [ingredients,setIngredients]= useState('')
     const [procedure, setProcedure] = useState('')
-    const [recipe, setRecipe]=useState(null)
+    const [recipe, setRecipe]=useState()
+    const [data, setData]=useState()
 
     const { id } = useParams()
     console.log(id)
     useEffect(() => {
+     
       const fetchRecipe = async () => {
         try {
           const response = await AxiosService.get(`${ApiRoutes.getRecipeById.path}/${id}/rp`)
           console.log(response)
           setRecipe(response.data);
-          setRecipeName(response.data.recipe.recipename)
-          setRecipeDesc(response.data.recipe.recipedesc)
-          setAuthorName(response.data.recipe.authorname)
-          setIngredients(response.data.recipe.ingredients)
-          setProcedure(response.data.recipe.procedure)
+          setData({...recipe})
+         console.log(recipe)
+         console.log(data)
+          setRecipeName(data.recipe.recipename)
+          console.log(recipename)
+          setRecipeDesc(data.recipe.recipedesc)
+          setAuthorName(data.recipe.authorname)
+          setIngredients(data.recipe.ingredients)
+          setProcedure(data.recipe.procedure)
         } catch (error) {
           console.error('Error fetching recipe:', error);
         }
@@ -40,9 +46,9 @@ function UpdateRecipe() {
   
       fetchRecipe();
     }, [id]); 
-
+     
+    
    const handleEditRecipe = async (values, {resetForm})=>{
-    console.log(id)
       try{
         const formData = new FormData()
         formData.append("recipename", values.recipename);
